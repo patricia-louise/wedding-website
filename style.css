@@ -3,91 +3,106 @@ body {
   font-family: Inter, sans-serif;
   background: #f7f4ef;
   color: #2b2b2b;
-  line-height: 1.6;
+}
+
+/* GATE */
+#gate {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #f7f4ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 999;
+}
+
+.gate-box h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: #2b2b2b;
+  color: white;
+  cursor: pointer;
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 140px 20px 100px;
-}
-
-.eyebrow {
-  letter-spacing: 2px;
-  font-size: 12px;
-  opacity: 0.7;
+  padding: 120px 20px;
 }
 
 h1 {
   font-family: "Playfair Display", serif;
-  font-size: 54px;
-  margin: 10px 0;
-}
-
-.date {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.subtitle {
-  font-style: italic;
-  margin-top: 10px;
-  opacity: 0.75;
+  font-size: 48px;
 }
 
 /* SECTIONS */
 .section {
-  max-width: 750px;
-  margin: auto;
-  padding: 90px 20px;
   text-align: center;
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: auto;
 }
 
-h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-
-.subtext {
-  opacity: 0.7;
-  margin-bottom: 30px;
+.countdown-box {
+  margin: 20px 0;
 }
 
 /* GALLERY */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 30px;
+  gap: 10px;
 }
 
-.gallery-item {
-  background: #e8dfd3;
-  height: 180px;
-  border-radius: 2px;
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.02);
+}
+
+/* LIGHTBOX */
+#lightbox {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 80%;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 60px 20px;
+  padding: 40px;
   font-size: 12px;
-  opacity: 0.6;
 }
 
-/* FADE IN ANIMATION */
+/* FADE */
 .fade-in {
-  animation: fadeIn 1.2s ease-in-out both;
+  animation: fadeIn 1s ease-in;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
 }
