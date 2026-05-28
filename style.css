@@ -3,47 +3,91 @@ body {
   font-family: Inter, sans-serif;
   background: #f7f4ef;
   color: #2b2b2b;
-  text-align: center;
+  line-height: 1.6;
 }
 
+/* HERO */
 .hero {
-  padding: 120px 20px;
+  text-align: center;
+  padding: 140px 20px 100px;
 }
 
 .eyebrow {
   letter-spacing: 2px;
   font-size: 12px;
+  opacity: 0.7;
 }
 
 h1 {
   font-family: "Playfair Display", serif;
-  font-size: 48px;
+  font-size: 54px;
   margin: 10px 0;
 }
 
 .date {
   font-size: 14px;
-  margin-bottom: 20px;
+  opacity: 0.8;
 }
 
 .subtitle {
   font-style: italic;
-  opacity: 0.8;
+  margin-top: 10px;
+  opacity: 0.75;
 }
 
+/* SECTIONS */
 .section {
-  padding: 80px 20px;
-  max-width: 700px;
+  max-width: 750px;
   margin: auto;
+  padding: 90px 20px;
+  text-align: center;
 }
 
 h2 {
   font-family: "Playfair Display", serif;
-  margin-bottom: 10px;
+  font-size: 28px;
+  margin-bottom: 15px;
 }
 
-footer {
-  padding: 40px;
-  font-size: 12px;
+.subtext {
   opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.gallery-item {
+  background: #e8dfd3;
+  height: 180px;
+  border-radius: 2px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* FADE IN ANIMATION */
+.fade-in {
+  animation: fadeIn 1.2s ease-in-out both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
