@@ -11,76 +11,75 @@
 
 <body>
 
-<!-- ENVELOPE INTRO -->
-<div id="intro">
-  <div class="envelope" id="envelope" onclick="openEnvelope()">
+<header class="hero reveal">
+  <p class="eyebrow">WE ARE GETTING MARRIED</p>
+  <h1>Patricia & Monkeil</h1>
+  <p class="date">August 20, 2026</p>
+  <p class="subtitle">A quiet celebration of love, family, and forever.</p>
+</header>
 
-    <div class="flap"></div>
+<section class="section reveal">
+  <h2>Our Story</h2>
+  <p>Some love stories are loud. Ours is quiet, intentional, and built to last.</p>
+</section>
 
-    <div class="body">
-      <p class="small">An Invitation</p>
-      <h1>Patricia & Monkeil</h1>
-      <p class="small">August 20, 2026</p>
-      <p class="hint">Tap to open</p>
-    </div>
+<section class="section reveal">
+  <h2>The Beginning</h2>
+  <p>We didn’t rush anything. We let it grow slowly, the way meaningful things do.</p>
+</section>
 
+<section class="section reveal">
+  <h2>The Journey</h2>
+  <p>Every chapter brought us closer to a life we now choose every day.</p>
+</section>
+
+<section class="section reveal">
+  <h2>The Day</h2>
+  <p>On August 20, 2026, we begin a new chapter surrounded by the people we love most.</p>
+</section>
+
+<section class="section reveal">
+  <h2>Details</h2>
+  <p>Ceremony and reception details coming soon.</p>
+</section>
+
+<section class="section reveal">
+  <h2>Gallery</h2>
+
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1523438097201-512ae7d59c8b">
+    <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac">
+    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
+    <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
   </div>
-</div>
+</section>
 
-<!-- MAIN SITE -->
-<div id="site">
+<section class="section reveal">
+  <h2>RSVP</h2>
+  <iframe 
+    src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
+    width="100%" height="600" frameborder="0">
+  </iframe>
+</section>
 
-  <header class="hero fade-in">
-    <p class="eyebrow">WE ARE GETTING MARRIED</p>
-    <h1>Patricia & Monkeil</h1>
-    <p class="date">August 20, 2026</p>
-    <p class="subtitle">A quiet celebration of love, family, and forever.</p>
-  </header>
-
-  <section class="section fade-in">
-    <h2>Our Story</h2>
-    <p>Some love stories are loud. Ours is quiet, intentional, and built to last.</p>
-  </section>
-
-  <section class="section fade-in">
-    <h2>Details</h2>
-    <p>Ceremony and reception details coming soon.</p>
-  </section>
-
-  <section class="section fade-in">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1523438097201-512ae7d59c8b">
-      <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac">
-      <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
-      <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-    </div>
-  </section>
-
-  <section class="section fade-in">
-    <h2>RSVP</h2>
-    <iframe 
-      src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
-      width="100%" height="600" frameborder="0">
-    </iframe>
-  </section>
-
-  <footer>
-    <p>Patricia & Monkeil © 2026</p>
-  </footer>
-
-</div>
+<footer class="reveal">
+  <p>Patricia & Monkeil © 2026</p>
+</footer>
 
 <script>
-function openEnvelope() {
-  const envelope = document.getElementById("envelope");
-  envelope.classList.add("open");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, {
+  threshold: 0.15
+});
 
-  setTimeout(() => {
-    document.getElementById("intro").style.display = "none";
-    document.getElementById("site").style.display = "block";
-  }, 1400);
-}
+document.querySelectorAll(".reveal").forEach(el => {
+  observer.observe(el);
+});
 </script>
 
 </body>
