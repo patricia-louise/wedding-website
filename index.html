@@ -11,39 +11,73 @@
 
 <body>
 
-<header class="hero reveal">
+<!-- LANDING PAGE (RESTORED) -->
+<div id="gate">
+  <div class="gate-box">
+    <p class="eyebrow">YOU ARE INVITED</p>
+    <h1>Patricia & Monkeil</h1>
+    <p class="date">August 20, 2026</p>
+    <button onclick="enterSite()">Enter Invitation</button>
+  </div>
+</div>
+
+<!-- MAIN SITE -->
+<div id="site">
+
+<header class="hero reveal bordered">
   <p class="eyebrow">WE ARE GETTING MARRIED</p>
   <h1>Patricia & Monkeil</h1>
-  <p class="date">August 20, 2026</p>
   <p class="subtitle">A quiet celebration of love, family, and forever.</p>
 </header>
 
-<section class="section reveal">
+<section class="section reveal bordered">
   <h2>Our Story</h2>
   <p>Some love stories are loud. Ours is quiet, intentional, and built to last.</p>
 </section>
 
-<section class="section reveal">
-  <h2>The Beginning</h2>
-  <p>We didn’t rush anything. We let it grow slowly, the way meaningful things do.</p>
+<section class="section reveal bordered">
+  <h2>Wedding Timeline</h2>
+
+  <div class="timeline">
+    <p><b>2:00 PM</b> — Guest Arrival</p>
+    <p><b>3:00 PM</b> — Ceremony Begins</p>
+    <p><b>4:30 PM</b> — Cocktail Hour</p>
+    <p><b>6:00 PM</b> — Reception Dinner</p>
+    <p><b>8:00 PM</b> — First Dance</p>
+    <p><b>10:00 PM</b> — Send-off</p>
+  </div>
 </section>
 
-<section class="section reveal">
-  <h2>The Journey</h2>
-  <p>Every chapter brought us closer to a life we now choose every day.</p>
+<section class="section reveal bordered">
+  <h2>Dress Code</h2>
+  <p><b>Formal Elegance</b></p>
+  <p>Neutral tones preferred: ivory, beige, champagne, muted black.</p>
 </section>
 
-<section class="section reveal">
-  <h2>The Day</h2>
-  <p>On August 20, 2026, we begin a new chapter surrounded by the people we love most.</p>
+<section class="section reveal bordered">
+  <h2>Menu</h2>
+
+  <div class="menu">
+    <p><b>Starter:</b> Truffle Cream Soup</p>
+    <p><b>Main:</b> Herb Crusted Chicken / Grilled Salmon</p>
+    <p><b>Dessert:</b> Vanilla Bean Panna Cotta</p>
+    <p><b>Drinks:</b> Signature Rosé & Classic Mocktails</p>
+  </div>
 </section>
 
-<section class="section reveal">
-  <h2>Details</h2>
-  <p>Ceremony and reception details coming soon.</p>
+<section class="section reveal bordered">
+  <h2>Location</h2>
+  <p>Sample Venue: Tagaytay Highlands Ballroom</p>
+
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps?q=Tagaytay&output=embed"
+      width="100%" height="300" style="border:0;">
+    </iframe>
+  </div>
 </section>
 
-<section class="section reveal">
+<section class="section reveal bordered">
   <h2>Gallery</h2>
 
   <div class="gallery">
@@ -51,12 +85,15 @@
     <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac">
     <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
     <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3">
+    <img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9">
   </div>
 </section>
 
-<section class="section reveal">
+<section class="section reveal bordered">
   <h2>RSVP</h2>
-  <iframe 
+
+  <iframe
     src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
     width="100%" height="600" frameborder="0">
   </iframe>
@@ -66,20 +103,22 @@
   <p>Patricia & Monkeil © 2026</p>
 </footer>
 
+</div>
+
 <script>
+function enterSite() {
+  document.getElementById("gate").style.display = "none";
+  document.getElementById("site").style.display = "block";
+}
+
+/* scroll reveal */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
+    if (entry.isIntersecting) entry.target.classList.add("show");
   });
-}, {
-  threshold: 0.15
-});
+}, { threshold: 0.15 });
 
-document.querySelectorAll(".reveal").forEach(el => {
-  observer.observe(el);
-});
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 </script>
 
 </body>
