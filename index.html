@@ -2,27 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Patricia & Monkeil</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
+<!-- ENVELOPE INTRO -->
+<div id="intro">
+  <div class="envelope" id="envelope" onclick="openEnvelope()">
+
+    <div class="flap"></div>
+
+    <div class="body">
+      <p class="small">An Invitation</p>
+      <h1>Patricia & Monkeil</h1>
+      <p class="small">August 20, 2026</p>
+      <p class="hint">Tap to open</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- MAIN SITE -->
+<div id="site">
+
   <header class="hero fade-in">
     <p class="eyebrow">WE ARE GETTING MARRIED</p>
     <h1>Patricia & Monkeil</h1>
-    <p class="date">2026</p>
+    <p class="date">August 20, 2026</p>
     <p class="subtitle">A quiet celebration of love, family, and forever.</p>
   </header>
 
   <section class="section fade-in">
     <h2>Our Story</h2>
-    <p>
-      Some love stories are loud. Ours is quiet, intentional, and built to last.
-    </p>
+    <p>Some love stories are loud. Ours is quiet, intentional, and built to last.</p>
   </section>
 
   <section class="section fade-in">
@@ -32,26 +49,39 @@
 
   <section class="section fade-in">
     <h2>Gallery</h2>
-    <p class="subtext">A few moments that matter.</p>
-
     <div class="gallery">
-      <div class="gallery-item"></div>
-      <div class="gallery-item"></div>
-      <div class="gallery-item"></div>
-      <div class="gallery-item"></div>
-      <div class="gallery-item"></div>
-      <div class="gallery-item"></div>
+      <img src="https://images.unsplash.com/photo-1523438097201-512ae7d59c8b">
+      <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac">
+      <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
     </div>
   </section>
 
   <section class="section fade-in">
     <h2>RSVP</h2>
-    <p>Please respond by the invitation deadline.</p>
+    <iframe 
+      src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
+      width="100%" height="600" frameborder="0">
+    </iframe>
   </section>
 
-  <footer class="fade-in">
+  <footer>
     <p>Patricia & Monkeil © 2026</p>
   </footer>
+
+</div>
+
+<script>
+function openEnvelope() {
+  const envelope = document.getElementById("envelope");
+  envelope.classList.add("open");
+
+  setTimeout(() => {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("site").style.display = "block";
+  }, 1400);
+}
+</script>
 
 </body>
 </html>
