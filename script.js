@@ -1,9 +1,9 @@
 /* ==================================================
-   VOGUE EDITORIAL WEDDING WEBSITE
-   VERSION 2
+   VERSION 3
+   THE INVITATION SUITE
 ================================================== */
 /* ==========================
-OPEN INVITATION
+ELEMENTS
 ========================== */
 const introScreen =
 document.getElementById(
@@ -13,14 +13,29 @@ const mainSite =
 document.getElementById(
     "mainSite"
 );
-const openButton =
+const openInvitation =
 document.getElementById(
     "openInvitation"
 );
-if(openButton){
-    openButton.addEventListener(
+const themeToggle =
+document.getElementById(
+    "themeToggle"
+);
+/* ==========================
+OPEN INVITATION
+========================== */
+if(openInvitation){
+    openInvitation.addEventListener(
         "click",
         () => {
+            const seal =
+            document.querySelector(
+                ".wax-seal"
+            );
+            if(seal){
+                seal.style.transform =
+                "scale(.9)";
+            }
             introScreen.style.transition =
             "opacity 1s ease";
             introScreen.style.opacity =
@@ -30,8 +45,9 @@ if(openButton){
                 "none";
                 mainSite.style.display =
                 "block";
-                document.body.classList.add(
-                    "loaded"
+                window.scrollTo(
+                    0,
+                    0
                 );
             },1000);
         }
@@ -40,10 +56,6 @@ if(openButton){
 /* ==========================
 DARK MODE
 ========================== */
-const themeToggle =
-document.getElementById(
-    "themeToggle"
-);
 const savedTheme =
 localStorage.getItem(
     "theme"
@@ -64,11 +76,11 @@ if(themeToggle){
             document.body.classList.toggle(
                 "dark"
             );
-            const isDark =
+            const darkMode =
             document.body.classList.contains(
                 "dark"
             );
-            if(isDark){
+            if(darkMode){
                 localStorage.setItem(
                     "theme",
                     "dark"
@@ -87,7 +99,80 @@ if(themeToggle){
     );
 }
 /* ==========================
-COUNTDOWNS
+SMOOTH NAVIGATION
+========================== */
+document
+.querySelectorAll(
+'.main-nav a'
+)
+.forEach(link=>{
+link.addEventListener(
+'click',
+function(e){
+e.preventDefault();
+const target =
+document.querySelector(
+this.getAttribute(
+'href'
+)
+);
+if(target){
+target.scrollIntoView({
+behavior:
+'smooth'
+});
+}
+});
+});
+/* ==========================
+COUNTDOWN HELPERS
+========================== */
+function calculateCountdown(
+targetDate
+){
+const now =
+new Date().getTime();
+const difference =
+targetDate - now;
+if(difference <= 0){
+return {
+days: 0,
+hours: 0,
+minutes: 0,
+seconds: 0
+};
+}
+return {
+days:
+Math.floor(
+difference /
+(1000*60*60*24)
+),
+hours:
+Math.floor(
+(difference %
+(1000*60*60*24))
+/
+(1000*60*60)
+),
+minutes:
+Math.floor(
+(difference %
+(1000*60*60))
+/
+(1000*60)
+),
+seconds:
+Math.floor(
+(difference %
+(1000*60))
+/
+1000
+)
+};
+}
+/* ==========================
+UPDATE COUNTDOWN
 ========================== */
 const weddingDate =
 new Date(
@@ -97,269 +182,187 @@ const rsvpDate =
 new Date(
 "June 30, 2026 23:59:59"
 ).getTime();
-function updateCountdown(){
-    const now =
-    new Date().getTime();
-    const weddingDiff =
-    weddingDate - now;
-    const rsvpDiff =
-    rsvpDate - now;
-    const weddingDays =
-    Math.floor(
-        weddingDiff /
-        (1000*60*60*24)
-    );
-    const rsvpDays =
-    Math.floor(
-        rsvpDiff /
-        (1000*60*60*24)
-    );
-    const weddingEl =
-    document.getElementById(
-        "weddingCountdown"
-    );
-    const rsvpEl =
-    document.getElementById(
-        "rsvpCountdown"
-    );
-    if(weddingEl){
-        weddingEl.innerHTML =
-        `${weddingDays} DAYS`;
-    }
-    if(rsvpEl){
-        rsvpEl.innerHTML =
-        `${rsvpDays} DAYS`;
-    }
+function renderCountdown(){
+const wedding =
+calculateCountdown(
+weddingDate
+);
+const rsvp =
+calculateCountdown(
+rsvpDate
+);
+const weddingBox =
+document.getElementById(
+"weddingCountdown"
+);
+const rsvpBox =
+document.getElementById(
+"rsvpCountdown"
+);
+if(weddingBox){
+weddingBox.innerHTML =
+`
+<div>
+<span class="count-number">
+${wedding.days}
+</span>
+<small>Days</small>
+</div>
+<div>
+<span class="count-number">
+${wedding.hours}
+</span>
+<small>Hours</small>
+</div>
+<div>
+<span class="count-number">
+${wedding.minutes}
+</span>
+<small>Minutes</small>
+</div>
+<div>
+<span class="count-number">
+${wedding.seconds}
+</span>
+<small>Seconds</small>
+</div>
+`;
 }
-updateCountdown();
+if(rsvpBox){
+rsvpBox.innerHTML =
+`
+<div>
+<span class="count-number">
+${rsvp.days}
+</span>
+<small>Days</small>
+</div>
+<div>
+<span class="count-number">
+${rsvp.hours}
+</span>
+<small>Hours</small>
+</div>
+<div>
+<span class="count-number">
+${rsvp.minutes}
+</span>
+<small>Minutes</small>
+</div>
+<div>
+<span class="count-number">
+${rsvp.seconds}
+</span>
+<small>Seconds</small>
+</div>
+`;
+}
+}
+renderCountdown();
 setInterval(
-    updateCountdown,
-    1000
+renderCountdown,
+1000
 );
 /* ==========================
 SCROLL REVEAL
 ========================== */
 const revealElements =
 document.querySelectorAll(
-    ".reveal"
+'.hero-content,\
+.countdown-section,\
+.itinerary-section,\
+.details-board,\
+.venue-section,\
+.story-section,\
+.rsvp-section'
 );
-const revealObserver =
+const observer =
 new IntersectionObserver(
 (entries)=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
+entries.forEach(
+entry=>{
+if(
+entry.isIntersecting
+){
 entry.target.classList.add(
-"active"
+'reveal-active'
 );
 }
-});
+}
+);
 },
 {
-threshold:0.15
+threshold: .15
 }
 );
 revealElements.forEach(
-item=>{
-revealObserver.observe(
-item
+element=>{
+element.classList.add(
+'reveal'
+);
+observer.observe(
+element
 );
 }
 );
 /* ==========================
-LIGHTBOX
-========================== */
-const galleryImages =
-document.querySelectorAll(
-".gallery-grid img"
-);
-const lightbox =
-document.createElement(
-"div"
-);
-lightbox.id =
-"lightbox";
-document.body.appendChild(
-lightbox
-);
-galleryImages.forEach(
-img=>{
-img.addEventListener(
-"click",
-()=>{
-lightbox.classList.add(
-"active"
-);
-const image =
-document.createElement(
-"img"
-);
-image.src =
-img.src;
-while(
-lightbox.firstChild
-){
-lightbox.removeChild(
-lightbox.firstChild
-);
-}
-lightbox.appendChild(
-image
-);
-}
-);
-}
-);
-lightbox.addEventListener(
-"click",
-()=>{
-lightbox.classList.remove(
-"active"
-);
-}
-);
-/* ==========================
-ACTIVE NAVIGATION
+ACTIVE NAV
 ========================== */
 const sections =
 document.querySelectorAll(
-"section[id]"
+'section[id]'
 );
 const navLinks =
 document.querySelectorAll(
-".floating-nav a"
+'.main-nav a'
 );
 window.addEventListener(
-"scroll",
+'scroll',
 ()=>{
-let current = "";
+let current =
+'';
 sections.forEach(
 section=>{
-const sectionTop =
+const top =
 section.offsetTop;
-const sectionHeight =
-section.clientHeight;
+const height =
+section.offsetHeight;
 if(
-pageYOffset >=
-sectionTop -
-sectionHeight / 3
+window.scrollY >=
+top - 150
 ){
 current =
 section.getAttribute(
-"id"
+'id'
 );
 }
-}
-);
+});
 navLinks.forEach(
 link=>{
 link.classList.remove(
-"active-link"
+'active-link'
 );
 if(
 link.getAttribute(
-"href"
+'href'
 ) ===
-"#" + current
+'#' + current
 ){
 link.classList.add(
-"active-link"
+'active-link'
 );
 }
-}
-);
-}
-);
-/* ==========================
-SMOOTH SCROLL
-========================== */
-navLinks.forEach(
-link=>{
-link.addEventListener(
-"click",
-(e)=>{
-e.preventDefault();
-const target =
-document.querySelector(
-link.getAttribute(
-"href"
-)
-);
-if(target){
-target.scrollIntoView({
-behavior:
-"smooth"
 });
 }
-}
-);
-}
 );
 /* ==========================
-PARALLAX HERO
+PAGE LOAD
 ========================== */
 window.addEventListener(
-"scroll",
-()=>{
-const heroImage =
-document.querySelector(
-".hero-right img"
-);
-if(!heroImage) return;
-const scrollY =
-window.scrollY;
-heroImage.style.transform =
-`scale(1.08)
-translateY(
-${scrollY * 0.05}px
-)`;
-}
-);
-/* ==========================
-SEQUENTIAL HERO REVEAL
-========================== */
-window.addEventListener(
-"load",
-()=>{
-const heroElements = [
-".hero-monogram",
-".hero-overline",
-".hero-title",
-".hero-date",
-".hero-tagline",
-".hero-button"
-];
-heroElements.forEach(
-(selector,index)=>{
-const element =
-document.querySelector(
-selector
-);
-if(element){
-element.style.opacity =
-"0";
-element.style.transform =
-"translateY(20px)";
-setTimeout(()=>{
-element.style.transition =
-"1.2s ease";
-element.style.opacity =
-"1";
-element.style.transform =
-"translateY(0)";
-},300 * index);
-}
-}
-);
-}
-);
-/* ==========================
-PAGE LOADED
-========================== */
-window.addEventListener(
-"load",
+'load',
 ()=>{
 document.body.classList.add(
-"page-loaded"
+'loaded'
 );
 }
 );
