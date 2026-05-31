@@ -685,3 +685,34 @@ RESPONSIVE
         15px 20px;
     }
 }
+
+/* ==========================
+REVEALS
+========================== */
+.reveal {
+    opacity: 0;
+    transform:
+    translateY(30px);
+    transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+.reveal-active {
+    opacity: 1;
+    transform:
+    translateY(0);
+}
+/* ==========================
+ACTIVE NAV
+========================== */
+.active-link {
+    color:
+    var(--accent) !important;
+}
+/* ==========================
+WAX SEAL
+========================== */
+.wax-seal {
+    transition:
+    transform .4s ease;
+}
