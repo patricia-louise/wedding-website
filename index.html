@@ -1,253 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patricia Louise Santos & Monkeil Romen</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Patricia Louise Santos & Monkeil Romen
+</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-    <!-- ENVELOPE INTRO -->
-    <div id="intro-screen">
-        <div class="envelope-container">
-            <div class="monogram">
-                P • M
+
+<!-- ==========================
+LANDING PAGE
+========================== -->
+
+<div id="intro-screen">
+
+    <div class="intro-content">
+
+        <div class="crest">
+            K | P
+        </div>
+
+        <p class="intro-overline">
+            YOU ARE INVITED
+        </p>
+
+        <h1 class="intro-title">
+            Patricia Louise Santos
+            <span>and</span>
+            Monkeil Romen
+        </h1>
+
+        <p class="intro-date">
+            August 20, 2026
+        </p>
+
+        <button id="openInvitation">
+            OPEN INVITATION
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ==========================
+MAIN WEBSITE
+========================== -->
+
+<div id="mainSite">
+
+    <!-- THEME TOGGLE -->
+
+    <button id="themeToggle">
+        DARK MODE
+    </button>
+
+    <!-- FLOATING NAV -->
+
+    <nav class="floating-nav">
+
+        <a href="#story">Story</a>
+        <a href="#itinerary">Itinerary</a>
+        <a href="#venue">Venue</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#rsvp">RSVP</a>
+
+    </nav>
+
+    <!-- ==========================
+    HERO
+    ========================== -->
+
+    <section class="hero" id="hero">
+
+        <div class="hero-left">
+
+            <div class="hero-monogram">
+                K | P
             </div>
-            <h1 class="intro-title">
+
+            <p class="hero-overline">
+                YOU ARE INVITED TO THE WEDDING OF
+            </p>
+
+            <h1 class="hero-title">
                 Patricia Louise Santos
-                <span>&</span>
+                <span>and</span>
                 Monkeil Romen
             </h1>
-            <p class="intro-date">
+
+            <p class="hero-date">
                 August 20, 2026
             </p>
-            <button id="openInvitation">
-                Open Invitation
-            </button>
-        </div>
-    </div>
-    <!-- MAIN WEBSITE -->
-    <main id="mainSite">
-        <!-- THEME TOGGLE -->
-        <button id="themeToggle">
-            Dark Mode
-        </button>
-        <!-- HERO -->
-        <section class="hero">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <p class="eyebrow">
-                    WE ARE GETTING MARRIED
-                </p>
-                <h1 class="hero-title">
-                    Patricia Louise Santos
-                    <span>&</span>
-                    Monkeil Romen
-                </h1>
-                <p class="hero-date">
-                    August 20, 2026
-                </p>
-                <div class="divider"></div>
-                <p class="hero-copy">
-                    Together with our families,
-                    we invite you to celebrate our wedding day.
-                </p>
-            </div>
-        </section>
-        <!-- COUNTDOWNS -->
-        <section class="section reveal">
-            <h2>Countdown</h2>
-            <div class="divider"></div>
-            <div class="countdown-grid">
-                <div class="countdown-card">
-                    <h3>RSVP Deadline</h3>
-                    <div id="rsvpCountdown">
-                        Loading...
-                    </div>
-                </div>
-                <div class="countdown-card">
-                    <h3>Wedding Day</h3>
-                    <div id="weddingCountdown">
-                        Loading...
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- STORY -->
-        <section class="section reveal">
-            <h2>Our Story</h2>
-            <div class="divider"></div>
-            <p class="section-copy">
-                Some love stories are loud.
-                Ours is quiet, intentional, and built to last.
-                Through every season, challenge, and celebration,
-                we have chosen each other again and again.
-                On August 20, 2026, we begin our next chapter together.
+
+            <p class="hero-tagline">
+                Together with our families,
+                we invite you to celebrate
+                the beginning of our forever.
             </p>
-        </section>
-        <!-- DETAILS -->
-        <section class="section reveal">
-            <h2>Wedding Details</h2>
-            <div class="divider"></div>
-            <div class="details-grid">
-                <div class="detail-card">
-                    <h3>Ceremony</h3>
-                    <p>4:00 PM</p>
-                </div>
-                <div class="detail-card">
-                    <h3>Reception</h3>
-                    <p>6:30 PM</p>
-                </div>
-                <div class="detail-card">
-                    <h3>Venue</h3>
-                    <p>Elia Events Place</p>
-                </div>
+
+            <a href="#story" class="hero-button">
+                EXPLORE
+            </a>
+
+        </div>
+
+        <div class="hero-right">
+
+            <img
+                src="images/hero-silhouette.jpg"
+                alt="Hero Image">
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+    COUNTDOWNS
+    ========================== -->
+
+    <section class="countdown-section reveal">
+
+        <div class="section-header">
+
+            <h2>COUNTDOWN</h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+        <div class="countdown-grid">
+
+            <div class="countdown-block">
+
+                <h3>
+                    RSVP DEADLINE
+                </h3>
+
+                <div id="rsvpCountdown"></div>
+
             </div>
-        </section>
+
+            <div class="countdown-block">
+
+                <h3>
+                    WEDDING DAY
+                </h3>
+
+                <div id="weddingCountdown"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+    STORY
+    ========================== -->
+
+    <section
+        class="story-section reveal"
+        id="story">
+
+        <div class="story-image">
+
+            <img
+                src="images/story-left.jpg"
+                alt="Story Left">
+
+        </div>
+
+        <div class="story-content">
+
+            <h2>
+                OUR STORY
+            </h2>
+
+            <div class="section-line"></div>
+
+            <p>
+                Some love stories are loud.
+                Ours is quiet, intentional,
+                and built to last.
+            </p>
+
+            <blockquote>
+                "The best things in life
+                arrive gently."
+            </blockquote>
+
+        </div>
+
+        <div class="story-image">
+
+            <img
+                src="images/story-right.jpg"
+                alt="Story Right">
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+    ITINERARY BOARD
+    ========================== -->
+
+    <section
+        class="event-board reveal"
+        id="itinerary">
+
         <!-- TIMELINE -->
-        <section class="section reveal">
-            <h2>Timeline of Events</h2>
-            <div class="divider"></div>
+
+        <div class="timeline-column">
+
+            <h2>
+                ITINERARY
+            </h2>
+
+            <div class="section-line"></div>
+
             <div class="timeline">
+
                 <div class="timeline-item">
                     <span>11:00 AM</span>
-                    <p>Arrival of Coordinators and HMUA</p>
+                    <p>Arrival of Coordinators & HMUA</p>
                 </div>
+
                 <div class="timeline-item">
                     <span>11:30 AM</span>
-                    <p>Start Bridal Hair & Make-up</p>
+                    <p>Bridal Hair & Make-up</p>
                 </div>
+
                 <div class="timeline-item">
                     <span>12:30 PM</span>
                     <p>Arrival of Photographers</p>
                 </div>
+
                 <div class="timeline-item">
                     <span>1:30 PM</span>
-                    <p>Bridal Robe Shoot & Details</p>
+                    <p>Bridal Robe Shoot</p>
                 </div>
+
                 <div class="timeline-item">
                     <span>2:00 PM</span>
-                    <p>Pictorial with Female Entourage</p>
+                    <p>Female Entourage Shoot</p>
                 </div>
+
                 <div class="timeline-item">
                     <span>2:30 PM</span>
-                    <p>Retouch & Change to Wedding Gown</p>
+                    <p>Retouch & Gown Change</p>
                 </div>
+
                 <div class="timeline-item">
                     <span>3:00 PM</span>
-                    <p>Family & Entourage Photoshoot</p>
+                    <p>Family Photos</p>
                 </div>
+
                 <div class="timeline-item">
                     <span>4:00 PM</span>
                     <p>Wedding Ceremony</p>
                 </div>
+
                 <div class="timeline-item">
                     <span>5:00 PM</span>
-                    <p>Grand Pictorial with Newlyweds</p>
+                    <p>Newlywed Pictorial</p>
                 </div>
-                <div class="timeline-item">
-                    <span>5:30 PM</span>
-                    <p>Entourage Photos</p>
-                </div>
-                <div class="timeline-item">
-                    <span>6:00 PM</span>
-                    <p>Cocktails & Couple Meal</p>
-                </div>
+
                 <div class="timeline-item">
                     <span>6:30 PM</span>
                     <p>Reception Begins</p>
                 </div>
-                <div class="timeline-item">
-                    <span>7:00 PM</span>
-                    <p>Buffet Opens</p>
-                </div>
-                <div class="timeline-item">
-                    <span>7:30 PM</span>
-                    <p>Reception Program Continues</p>
-                </div>
-                <div class="timeline-item">
-                    <span>8:30 PM</span>
-                    <p>SDE Presentation</p>
-                </div>
+
                 <div class="timeline-item">
                     <span>9:00 PM</span>
                     <p>End of Celebration</p>
                 </div>
+
             </div>
-        </section>
+
+        </div>
+
         <!-- DRESS CODE -->
-        <section class="section reveal">
-            <h2>Dress Code</h2>
-            <div class="divider"></div>
-            <p class="section-copy">
-                Formal Elegance
-            </p>
-            <p>
-                Black • White • Deep Wine Red
-            </p>
-        </section>
-        <!-- MENU -->
-        <section class="section reveal">
-            <h2>Menu</h2>
-            <div class="divider"></div>
-            <div class="menu-card">
-                <h3>Starter</h3>
-                <p>Truffle Cream Soup</p>
-                <h3>Main Course</h3>
-                <p>Herb Crusted Chicken</p>
-                <p>Grilled Salmon</p>
-                <h3>Dessert</h3>
-                <p>Vanilla Bean Panna Cotta</p>
+
+        <div class="dress-column">
+
+            <h2>
+                DRESS CODE
+            </h2>
+
+            <div class="section-line"></div>
+
+            <div class="icon-placeholder">
+                🤵🏻‍♂️ 👗
             </div>
-        </section>
-        <!-- MAP -->
-        <section class="section reveal">
-            <h2>Venue Location</h2>
-            <div class="divider"></div>
+
+            <h3>
+                Formal Elegance
+            </h3>
+
             <p>
-                Elia Events Place
+                Black • White • Wine Red
             </p>
+
+            <div class="color-swatches">
+
+                <span class="swatch black"></span>
+                <span class="swatch white"></span>
+                <span class="swatch wine"></span>
+
+            </div>
+
+        </div>
+
+        <!-- MENU -->
+
+        <div class="menu-column">
+
+            <h2>
+                MENU
+            </h2>
+
+            <div class="section-line"></div>
+
+            <h4>Starter</h4>
+            <p>Truffle Cream Soup</p>
+
+            <h4>Main Course</h4>
+            <p>Herb Crusted Chicken</p>
+            <p>Grilled Salmon</p>
+
+            <h4>Dessert</h4>
+            <p>Vanilla Bean Panna Cotta</p>
+
+            <h4>Drinks</h4>
+            <p>Wine & Mocktails</p>
+
+        </div>
+
+    </section>
+
+    <!-- VENUE -->
+
+    <section
+        class="venue-section reveal"
+        id="venue">
+
+        <div class="venue-info">
+
+            <h2>
+                OUR VENUE
+            </h2>
+
+            <div class="section-line"></div>
+
+            <h3>
+                Elia Events Place
+            </h3>
+
+            <p>
+                Lipa City, Batangas
+            </p>
+
+            <a
+                href="https://share.google/w7ISjiEw8VKodiVLc"
+                target="_blank"
+                class="venue-button">
+
+                VIEW MAP
+
+            </a>
+
+        </div>
+
+        <div class="venue-map">
+
             <iframe
                 src="https://www.google.com/maps?q=Elia+Events+Place&output=embed"
-                width="100%"
-                height="450"
-                style="border:0;"
                 loading="lazy">
             </iframe>
-        </section>
-        <!-- GALLERY -->
-        <section class="section reveal">
-            <h2>Gallery</h2>
-            <div class="divider"></div>
-            <div class="gallery">
-                <img src="images/photo1.jpg" alt="">
-                <img src="images/photo2.jpg" alt="">
-                <img src="images/photo3.jpg" alt="">
-                <img src="images/photo4.jpg" alt="">
-                <img src="images/photo5.jpg" alt="">
-                <img src="images/photo6.jpg" alt="">
-                <img src="images/photo7.jpg" alt="">
-                <img src="images/photo8.jpg" alt="">
-                <img src="images/photo9.jpg" alt="">
-            </div>
-        </section>
-        <!-- RSVP -->
-        <section class="section reveal">
-            <h2>RSVP</h2>
-            <div class="divider"></div>
-            <iframe
-                src="YOUR_GOOGLE_FORM_LINK"
-                width="100%"
-                height="700">
-            </iframe>
-        </section>
-        <footer>
-            Patricia Louise Santos & Monkeil Romen © 2026
-        </footer>
-    </main>
-    <script src="script.js"></script>
+
+        </div>
+
+    </section>
+
+    <!-- GALLERY -->
+
+    <section
+        class="gallery-section reveal"
+        id="gallery">
+
+        <div class="section-header">
+
+            <h2>GALLERY</h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+        <div class="gallery-grid">
+
+            <img src="images/gallery-1.jpg">
+            <img src="images/gallery-2.jpg">
+            <img src="images/gallery-3.jpg">
+            <img src="images/gallery-4.jpg">
+            <img src="images/gallery-5.jpg">
+            <img src="images/gallery-6.jpg">
+            <img src="images/gallery-7.jpg">
+            <img src="images/gallery-8.jpg">
+            <img src="images/gallery-9.jpg">
+
+        </div>
+
+    </section>
+
+    <!-- RSVP -->
+
+    <section
+        class="rsvp-section reveal"
+        id="rsvp">
+
+        <h2>
+            RSVP
+        </h2>
+
+        <div class="section-line"></div>
+
+        <p>
+            Kindly respond by
+            June 30, 2026.
+        </p>
+
+        <a
+            href="#"
+            class="rsvp-button">
+
+            RESPOND
+
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-monogram">
+            K | P
+        </div>
+
+        <p>
+            Patricia Louise Santos
+            & Monkeil Romen
+        </p>
+
+        <small>
+            © 2026 All Rights Reserved
+        </small>
+
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
