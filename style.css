@@ -1241,3 +1241,22 @@ MOBILE
     }
 
 }
+
+/* ==========================
+ACTIVE NAV
+========================== */
+.active-link {
+    color: var(--wine) !important;
+    opacity: 1 !important;
+}
+/* ==========================
+PAGE LOAD
+========================== */
+body {
+    opacity: 0;
+}
+body.page-loaded {
+    opacity: 1;
+    transition:
+    opacity 1.5s ease;
+}
