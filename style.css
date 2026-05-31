@@ -316,3 +316,16 @@ footer {
         padding: 90px 20px;
     }
 }
+
+/* ===================================
+   LOADED STATE
+=================================== */
+body {
+    opacity: 0;
+}
+body.loaded {
+    opacity: 1;
+    transition:
+        opacity
+        1.2s ease;
+}
