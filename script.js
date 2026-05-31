@@ -1,220 +1,365 @@
-/* ===================================
-   OPEN INVITATION
-=================================== */
-const introScreen = document.getElementById("intro-screen");
-const mainSite = document.getElementById("mainSite");
-const openButton = document.getElementById("openInvitation");
-if (openButton) {
-    openButton.addEventListener("click", () => {
-        introScreen.style.opacity = "0";
-        setTimeout(() => {
-            introScreen.style.display = "none";
-            mainSite.style.display = "block";
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        }, 800);
-    });
-}
-/* ===================================
-   DARK / LIGHT MODE
-=================================== */
-const themeToggle = document.getElementById("themeToggle");
-let currentTheme =
-    localStorage.getItem("theme") || "light";
-if (currentTheme === "dark") {
-    document.body.classList.add("dark");
-    if (themeToggle) {
-        themeToggle.innerText = "Light Mode";
-    }
-}
-if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-        const isDark =
-            document.body.classList.contains("dark");
-        if (isDark) {
-            localStorage.setItem("theme", "dark");
-            themeToggle.innerText = "Light Mode";
-        } else {
-            localStorage.setItem("theme", "light");
-            themeToggle.innerText = "Dark Mode";
+/* ==================================================
+   VOGUE EDITORIAL WEDDING WEBSITE
+   VERSION 2
+================================================== */
+/* ==========================
+OPEN INVITATION
+========================== */
+const introScreen =
+document.getElementById(
+    "intro-screen"
+);
+const mainSite =
+document.getElementById(
+    "mainSite"
+);
+const openButton =
+document.getElementById(
+    "openInvitation"
+);
+if(openButton){
+    openButton.addEventListener(
+        "click",
+        () => {
+            introScreen.style.transition =
+            "opacity 1s ease";
+            introScreen.style.opacity =
+            "0";
+            setTimeout(() => {
+                introScreen.style.display =
+                "none";
+                mainSite.style.display =
+                "block";
+                document.body.classList.add(
+                    "loaded"
+                );
+            },1000);
         }
-    });
+    );
 }
-/* ===================================
-   RSVP COUNTDOWN
-=================================== */
-const rsvpTarget =
-    new Date("June 30, 2026 23:59:59").getTime();
-const weddingTarget =
-    new Date("August 20, 2026 16:00:00").getTime();
-function updateCountdowns() {
-    const now = new Date().getTime();
-    /* RSVP */
-    const rsvpDistance =
-        rsvpTarget - now;
-    const rsvpDays =
-        Math.floor(
-            rsvpDistance /
-            (1000 * 60 * 60 * 24)
-        );
-    const rsvpHours =
-        Math.floor(
-            (rsvpDistance %
-                (1000 * 60 * 60 * 24))
-            /
-            (1000 * 60 * 60)
-        );
-    const rsvpElement =
-        document.getElementById(
-            "rsvpCountdown"
-        );
-    if (rsvpElement) {
-        rsvpElement.innerHTML =
-            `${rsvpDays} Days<br>${rsvpHours} Hours`;
+/* ==========================
+DARK MODE
+========================== */
+const themeToggle =
+document.getElementById(
+    "themeToggle"
+);
+const savedTheme =
+localStorage.getItem(
+    "theme"
+);
+if(savedTheme === "dark"){
+    document.body.classList.add(
+        "dark"
+    );
+    if(themeToggle){
+        themeToggle.innerText =
+        "LIGHT MODE";
     }
-    /* WEDDING */
-    const weddingDistance =
-        weddingTarget - now;
+}
+if(themeToggle){
+    themeToggle.addEventListener(
+        "click",
+        () => {
+            document.body.classList.toggle(
+                "dark"
+            );
+            const isDark =
+            document.body.classList.contains(
+                "dark"
+            );
+            if(isDark){
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+                themeToggle.innerText =
+                "LIGHT MODE";
+            }else{
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+                themeToggle.innerText =
+                "DARK MODE";
+            }
+        }
+    );
+}
+/* ==========================
+COUNTDOWNS
+========================== */
+const weddingDate =
+new Date(
+"August 20, 2026 16:00:00"
+).getTime();
+const rsvpDate =
+new Date(
+"June 30, 2026 23:59:59"
+).getTime();
+function updateCountdown(){
+    const now =
+    new Date().getTime();
+    const weddingDiff =
+    weddingDate - now;
+    const rsvpDiff =
+    rsvpDate - now;
     const weddingDays =
-        Math.floor(
-            weddingDistance /
-            (1000 * 60 * 60 * 24)
-        );
-    const weddingHours =
-        Math.floor(
-            (weddingDistance %
-                (1000 * 60 * 60 * 24))
-            /
-            (1000 * 60 * 60)
-        );
-    const weddingElement =
-        document.getElementById(
-            "weddingCountdown"
-        );
-    if (weddingElement) {
-        weddingElement.innerHTML =
-            `${weddingDays} Days<br>${weddingHours} Hours`;
+    Math.floor(
+        weddingDiff /
+        (1000*60*60*24)
+    );
+    const rsvpDays =
+    Math.floor(
+        rsvpDiff /
+        (1000*60*60*24)
+    );
+    const weddingEl =
+    document.getElementById(
+        "weddingCountdown"
+    );
+    const rsvpEl =
+    document.getElementById(
+        "rsvpCountdown"
+    );
+    if(weddingEl){
+        weddingEl.innerHTML =
+        `${weddingDays} DAYS`;
+    }
+    if(rsvpEl){
+        rsvpEl.innerHTML =
+        `${rsvpDays} DAYS`;
     }
 }
-updateCountdowns();
+updateCountdown();
 setInterval(
-    updateCountdowns,
+    updateCountdown,
     1000
 );
-/* ===================================
-   SCROLL REVEAL
-=================================== */
+/* ==========================
+SCROLL REVEAL
+========================== */
 const revealElements =
-    document.querySelectorAll(".reveal");
+document.querySelectorAll(
+    ".reveal"
+);
 const revealObserver =
-    new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add(
-                        "active"
-                    );
-                }
-            });
-        },
-        {
-            threshold: 0.15
-        }
-    );
-revealElements.forEach(element => {
-    revealObserver.observe(element);
+new IntersectionObserver(
+(entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add(
+"active"
+);
+}
 });
-/* ===================================
-   GALLERY LIGHTBOX
-=================================== */
+},
+{
+threshold:0.15
+}
+);
+revealElements.forEach(
+item=>{
+revealObserver.observe(
+item
+);
+}
+);
+/* ==========================
+LIGHTBOX
+========================== */
 const galleryImages =
-    document.querySelectorAll(
-        ".gallery img"
-    );
+document.querySelectorAll(
+".gallery-grid img"
+);
 const lightbox =
-    document.createElement("div");
-lightbox.id = "lightbox";
-document.body.appendChild(lightbox);
-galleryImages.forEach(image => {
-    image.addEventListener("click", () => {
-        lightbox.classList.add("active");
-        const img =
-            document.createElement("img");
-        img.src = image.src;
-        while (lightbox.firstChild) {
-            lightbox.removeChild(
-                lightbox.firstChild
-            );
-        }
-        lightbox.appendChild(img);
-    });
-});
-lightbox.addEventListener("click", () => {
-    lightbox.classList.remove("active");
-});
-/* ===================================
-   ADD LIGHTBOX STYLING
-=================================== */
-const lightboxStyles =
-    document.createElement("style");
-lightboxStyles.innerHTML = `
-#lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:
-rgba(0,0,0,.9);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:99999;
-cursor:pointer;
-}
-#lightbox.active{
-display:flex;
-}
-#lightbox img{
-max-width:90%;
-max-height:90%;
-object-fit:contain;
-box-shadow:
-0 20px 80px
-rgba(0,0,0,.4);
-}
-`;
-document.head.appendChild(
-    lightboxStyles
+document.createElement(
+"div"
 );
-/* ===================================
-   HERO PARALLAX
-=================================== */
-window.addEventListener(
-    "scroll",
-    () => {
-        const hero =
-            document.querySelector(
-                ".hero"
-            );
-        if (!hero) return;
-        const scrollY =
-            window.scrollY;
-        hero.style.backgroundPosition =
-            `center ${scrollY * 0.4}px`;
-    }
+lightbox.id =
+"lightbox";
+document.body.appendChild(
+lightbox
 );
-/* ===================================
-   ELEGANT PAGE LOADER
-=================================== */
+galleryImages.forEach(
+img=>{
+img.addEventListener(
+"click",
+()=>{
+lightbox.classList.add(
+"active"
+);
+const image =
+document.createElement(
+"img"
+);
+image.src =
+img.src;
+while(
+lightbox.firstChild
+){
+lightbox.removeChild(
+lightbox.firstChild
+);
+}
+lightbox.appendChild(
+image
+);
+}
+);
+}
+);
+lightbox.addEventListener(
+"click",
+()=>{
+lightbox.classList.remove(
+"active"
+);
+}
+);
+/* ==========================
+ACTIVE NAVIGATION
+========================== */
+const sections =
+document.querySelectorAll(
+"section[id]"
+);
+const navLinks =
+document.querySelectorAll(
+".floating-nav a"
+);
 window.addEventListener(
-    "load",
-    () => {
-        document.body.classList.add(
-            "loaded"
-        );
-    }
+"scroll",
+()=>{
+let current = "";
+sections.forEach(
+section=>{
+const sectionTop =
+section.offsetTop;
+const sectionHeight =
+section.clientHeight;
+if(
+pageYOffset >=
+sectionTop -
+sectionHeight / 3
+){
+current =
+section.getAttribute(
+"id"
+);
+}
+}
+);
+navLinks.forEach(
+link=>{
+link.classList.remove(
+"active-link"
+);
+if(
+link.getAttribute(
+"href"
+) ===
+"#" + current
+){
+link.classList.add(
+"active-link"
+);
+}
+}
+);
+}
+);
+/* ==========================
+SMOOTH SCROLL
+========================== */
+navLinks.forEach(
+link=>{
+link.addEventListener(
+"click",
+(e)=>{
+e.preventDefault();
+const target =
+document.querySelector(
+link.getAttribute(
+"href"
+)
+);
+if(target){
+target.scrollIntoView({
+behavior:
+"smooth"
+});
+}
+}
+);
+}
+);
+/* ==========================
+PARALLAX HERO
+========================== */
+window.addEventListener(
+"scroll",
+()=>{
+const heroImage =
+document.querySelector(
+".hero-right img"
+);
+if(!heroImage) return;
+const scrollY =
+window.scrollY;
+heroImage.style.transform =
+`scale(1.08)
+translateY(
+${scrollY * 0.05}px
+)`;
+}
+);
+/* ==========================
+SEQUENTIAL HERO REVEAL
+========================== */
+window.addEventListener(
+"load",
+()=>{
+const heroElements = [
+".hero-monogram",
+".hero-overline",
+".hero-title",
+".hero-date",
+".hero-tagline",
+".hero-button"
+];
+heroElements.forEach(
+(selector,index)=>{
+const element =
+document.querySelector(
+selector
+);
+if(element){
+element.style.opacity =
+"0";
+element.style.transform =
+"translateY(20px)";
+setTimeout(()=>{
+element.style.transition =
+"1.2s ease";
+element.style.opacity =
+"1";
+element.style.transform =
+"translateY(0)";
+},300 * index);
+}
+}
+);
+}
+);
+/* ==========================
+PAGE LOADED
+========================== */
+window.addEventListener(
+"load",
+()=>{
+document.body.classList.add(
+"page-loaded"
+);
+}
 );
