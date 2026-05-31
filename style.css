@@ -1,1487 +1,556 @@
-/* ==================================================
-   VOGUE EDITORIAL WEDDING WEBSITE
-   VERSION 2
-================================================== */
-
-/* ==========================
-THEME VARIABLES
-========================== */
-
-:root {
-
-    --bg: #faf9f7;
-    --text: #111111;
-
-    --wine: #7c1124;
-
-    --border: rgba(0,0,0,.10);
-
-    --muted: #6f6f6f;
-
-}
-
-body.dark {
-
-    --bg: #0f0f10;
-
-    --text: #ffffff;
-
-    --wine: #a91d33;
-
-    --border: rgba(255,255,255,.12);
-
-    --muted: #bdbdbd;
-
-}
-
-/* ==========================
-RESET
-========================== */
-
-* {
-
-    margin: 0;
-    padding: 0;
-
-    box-sizing: border-box;
-
-}
-
-html {
-
-    scroll-behavior: smooth;
-
-}
-
-body {
-
-    background: var(--bg);
-
-    color: var(--text);
-
-    font-family: Inter, sans-serif;
-
-    transition: .45s ease;
-
-    overflow-x: hidden;
-
-}
-
-/* ==========================
-GLOBAL
-========================== */
-
-img {
-
-    display: block;
-
-    width: 100%;
-
-}
-
-a {
-
-    text-decoration: none;
-
-    color: inherit;
-
-}
-
-.section-line {
-
-    width: 80px;
-
-    height: 1px;
-
-    background: var(--wine);
-
-    margin: 28px auto 0;
-
-}
-
-.section-header {
-
-    text-align: center;
-
-    margin-bottom: 80px;
-
-}
-
-/* ==========================
-INTRO
-========================== */
-
-#intro-screen {
-
-    position: fixed;
-
-    inset: 0;
-
-    background: var(--bg);
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    z-index: 9999;
-
-   overflow-y: auto;
-   padding: 40px 20px;
-
-}
-
-.intro-content {
-
-    max-width: 850px;
-
-    padding: 40px;
-
-}
-
-.crest {
-
-    width: 120px;
-    height: 120px;
-
-    margin: auto auto 40px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 50%;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-size: 30px;
-
-    letter-spacing: 4px;
-
-}
-
-.intro-overline {
-
-    letter-spacing: 4px;
-
-    font-size: 12px;
-
-    margin-bottom: 30px;
-
-}
-
-.intro-title {
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-weight: 300;
-
-    line-height: 1;
-
-    font-size:
-    clamp(3rem,8vw,7rem);
-
-}
-
-.intro-title span {
-
-    display: block;
-
-    font-family: Parisienne;
-
-    color: var(--wine);
-
-    margin: 10px 0;
-
-}
-
-.intro-date {
-
-    margin-top: 35px;
-
-    color: var(--muted);
-
-}
-
-#openInvitation {
-
-    margin-top: 50px;
-
-    border: 1px solid var(--text);
-
-    background: transparent;
-
-    color: var(--text);
-
-    padding: 14px 34px;
-
-    cursor: pointer;
-
-    letter-spacing: 2px;
-
-}
-
-/* ==========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+Monkeil Romen & Patricia Louise Santos
+</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- =======================================
+LANDING INVITATION
+======================================= -->
+<div id="intro-screen">
+    <div class="intro-container">
+        <div class="wax-seal">
+            <div class="seal-inner">
+                K | P
+            </div>
+        </div>
+        <p class="intro-overline">
+            DIGITAL INVITATION
+        </p>
+        <h1 class="intro-names">
+            Monkeil Romen
+            <span>&</span>
+            Patricia Louise Santos
+        </h1>
+        <p class="intro-date">
+            August 20, 2026
+        </p>
+        <button id="openInvitation">
+            OPEN INVITATION
+        </button>
+    </div>
+</div>
+<!-- =======================================
 MAIN SITE
-========================== */
-
-#mainSite {
-
-    display: none;
-
-}
-
-/* ==========================
-THEME BUTTON
-========================== */
-
-#themeToggle {
-
-    position: fixed;
-
-    top: 35px;
-    left: 35px;
-
-    z-index: 999;
-
-    border: 1px solid var(--border);
-
-    background: var(--bg);
-
-    color: var(--text);
-
-    padding: 10px 16px;
-
-    font-size: 12px;
-
-    letter-spacing: 2px;
-
-    cursor: pointer;
-
-}
-
-/* ==========================
-FLOATING NAV
-========================== */
-
-.floating-nav {
-
-    position: fixed;
-
-    right: 40px;
-
-    top: 50%;
-
-    transform:
-    translateY(-50%);
-
-    z-index: 999;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
-
-}
-
-.floating-nav a {
-
-    font-size: 12px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    opacity: .55;
-
-    transition: .3s ease;
-
-}
-
-.floating-nav a:hover {
-
-    opacity: 1;
-
-}
-
-/* ==========================
+======================================= -->
+<div id="mainSite">
+<!-- =======================================
+TOP NAVIGATION
+======================================= -->
+<header class="site-header">
+    <div class="header-monogram">
+        K | P
+    </div>
+    <nav class="main-nav">
+        <a href="#details">
+            DETAILS
+        </a>
+        <a href="#venue">
+            VENUE
+        </a>
+        <a href="#story">
+            STORY
+        </a>
+        <a href="#rsvp">
+            RSVP
+        </a>
+    </nav>
+</header>
+<!-- =======================================
+DARK MODE BUTTON
+======================================= -->
+<button id="themeToggle">
+    DARK MODE
+</button>
+<!-- =======================================
 HERO
-========================== */
-
-.hero {
-
-    min-height: 100vh;
-
-    display: grid;
-
-    grid-template-columns:
-    45% 55%;
-
-}
-
-.hero-left {
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    padding:
-    100px
-    8vw;
-
-}
-
-.hero-monogram {
-
-    width: 90px;
-    height: 90px;
-
-    border:
-    1px solid var(--border);
-
-    border-radius: 50%;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    margin-bottom: 40px;
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-size: 24px;
-
-}
-
-.hero-overline {
-
-    font-size: 12px;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 30px;
-
-}
-
-.hero-title {
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-weight: 300;
-
-    line-height: .95;
-
-    font-size:
-    clamp(4rem,8vw,7rem);
-
-}
-
-.hero-title span {
-
-    display: block;
-
-    font-family:
-    Parisienne;
-
-    color: var(--wine);
-
-    margin: 10px 0;
-
-}
-
-.hero-date {
-
-    margin-top: 30px;
-
-    letter-spacing: 2px;
-
-}
-
-.hero-tagline {
-
-    max-width: 420px;
-
-    margin-top: 30px;
-
-    color: var(--muted);
-
-}
-
-.hero-button {
-
-    width: fit-content;
-
-    margin-top: 40px;
-
-    border:
-    1px solid var(--text);
-
-    padding:
-    14px 28px;
-
-    letter-spacing: 2px;
-
-}
-
-.hero-right {
-
-    height: 100vh;
-
-}
-
-.hero-right img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-}
-
-/* ==========================
+======================================= -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-crest">
+            K | P
+        </div>
+        <p class="hero-intro">
+            Together with their loved ones
+        </p>
+        <h1 class="hero-title">
+            Monkeil Romen
+            <span>&</span>
+            Patricia Louise Santos
+        </h1>
+        <p class="hero-invitation">
+            invite you
+            <br>
+            as they celebrate
+            <br>
+            their wedding day
+        </p>
+        <div class="hero-divider"></div>
+        <p class="hero-date">
+            August 20, 2026
+        </p>
+        <p class="hero-time">
+            4:00 PM
+        </p>
+    </div>
+    <div class="hero-image">
+        <img
+            src="images/hero-silhouette.jpg"
+            alt="Hero Placeholder">
+    </div>
+</section>
+<!-- =======================================
 COUNTDOWN
-========================== */
-
-.countdown-section {
-
-    max-width: 1400px;
-
-    margin: auto;
-
-    padding:
-    160px 40px;
-
-}
-
-.countdown-grid {
-
-    display: grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap: 80px;
-
-}
-
-.countdown-block {
-
-    text-align: center;
-
-    border-top:
-    1px solid var(--border);
-
-    padding-top: 30px;
-
-}
-
-.countdown-block h3 {
-
-    letter-spacing: 3px;
-
-    font-size: 12px;
-
-    margin-bottom: 20px;
-
-}
-
-/* ==========================
-STORY
-========================== */
-
-.story-section {
-
-    max-width: 1600px;
-
-    margin: auto;
-
-    padding:
-    160px 60px;
-
-    display: grid;
-
-    grid-template-columns:
-    1fr 1.2fr 1fr;
-
-    gap: 80px;
-
-    align-items: center;
-
-}
-
-.story-image img {
-
-    aspect-ratio:
-    3 / 4;
-
-    object-fit: cover;
-
-}
-
-.story-content {
-
-    text-align: center;
-
-}
-
-.story-content h2 {
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-size: 42px;
-
-    font-weight: 400;
-
-}
-
-.story-content p {
-
-    margin-top: 40px;
-
-    line-height: 2;
-
-}
-
-.story-content blockquote {
-
-    margin-top: 40px;
-
-    font-family:
-    Parisienne;
-
-    font-size: 32px;
-
-    color: var(--wine);
-
-}
-
-/* ==========================
-EVENT BOARD
-========================== */
-
-.event-board {
-
-    max-width: 1600px;
-
-    margin: auto;
-
-    padding:
-    160px 60px;
-
-    display: grid;
-
-    grid-template-columns:
-    2fr 1fr 1fr;
-
-    gap: 80px;
-
-}
-
-/* ==========================
-TIMELINE COLUMN
-========================== */
-
-.timeline-column h2,
-.dress-column h2,
-.menu-column h2 {
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-size: 36px;
-
-    font-weight: 400;
-
-    margin-bottom: 12px;
-
-}
-
-.timeline {
-
-    margin-top: 50px;
-
-}
-
-.timeline-item {
-
-    display: grid;
-
-    grid-template-columns:
-    120px 1fr;
-
-    gap: 30px;
-
-    padding: 22px 0;
-
-    border-bottom:
-    1px solid var(--border);
-
-    position: relative;
-
-}
-
-.timeline-item span {
-
-    color: var(--wine);
-
-    font-weight: 500;
-
-    letter-spacing: 1px;
-
-}
-
-.timeline-item p {
-
-    color: var(--text);
-
-}
-
-.timeline-item::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 110px;
-
-    top: 50%;
-
-    width: 8px;
-    height: 8px;
-
-    background: var(--wine);
-
-    border-radius: 50%;
-
-    transform:
-    translateY(-50%);
-
-}
-
-/* ==========================
-DRESS CODE
-========================== */
-
-.dress-column {
-
-    text-align: center;
-
-    border-left:
-    1px solid var(--border);
-
-    border-right:
-    1px solid var(--border);
-
-    padding:
-    0 40px;
-
-}
-
-.icon-placeholder {
-
-    margin-top: 50px;
-
-    font-size: 48px;
-
-    opacity: .8;
-
-}
-
-.dress-column h3 {
-
-    margin-top: 30px;
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-size: 28px;
-
-    font-weight: 400;
-
-}
-
-.dress-column p {
-
-    margin-top: 20px;
-
-    color: var(--muted);
-
-}
-
-.color-swatches {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 14px;
-
-    margin-top: 35px;
-
-}
-
-.swatch {
-
-    width: 36px;
-    height: 36px;
-
-    border-radius: 50%;
-
-    border:
-    1px solid var(--border);
-
-}
-
-.swatch.black {
-
-    background: #111111;
-
-}
-
-.swatch.white {
-
-    background: #ffffff;
-
-}
-
-.swatch.wine {
-
-    background: #7c1124;
-
-}
-
-/* ==========================
-MENU
-========================== */
-
-.menu-column {
-
-    text-align: center;
-
-}
-
-.menu-column h4 {
-
-    margin-top: 35px;
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-size: 24px;
-
-    color: var(--wine);
-
-    font-weight: 500;
-
-}
-
-.menu-column p {
-
-    margin-top: 12px;
-
-    color: var(--muted);
-
-}
-
-/* ==========================
+======================================= -->
+<section
+class="countdown-section"
+id="details">
+    <div class="section-heading">
+        <p class="section-script">
+            Save the Date
+        </p>
+        <h2>
+            COUNTDOWN
+        </h2>
+    </div>
+    <div class="countdown-wrapper">
+        <!-- RSVP -->
+        <div class="countdown-card">
+            <h3>
+                RSVP DEADLINE
+            </h3>
+            <div
+            class="countdown-grid"
+            id="rsvpCountdown">
+                <div>
+                    <span class="count-number">
+                        000
+                    </span>
+                    <small>
+                        Days
+                    </small>
+                </div>
+                <div>
+                    <span class="count-number">
+                        00
+                    </span>
+                    <small>
+                        Hours
+                    </small>
+                </div>
+                <div>
+                    <span class="count-number">
+                        00
+                    </span>
+                    <small>
+                        Minutes
+                    </small>
+                </div>
+                <div>
+                    <span class="count-number">
+                        00
+                    </span>
+                    <small>
+                        Seconds
+                    </small>
+                </div>
+            </div>
+        </div>
+        <!-- WEDDING -->
+        <div class="countdown-card">
+            <h3>
+                WEDDING DAY
+            </h3>
+            <div
+            class="countdown-grid"
+            id="weddingCountdown">
+                <div>
+                    <span class="count-number">
+                        000
+                    </span>
+                    <small>
+                        Days
+                    </small>
+                </div>
+                <div>
+                    <span class="count-number">
+                        00
+                    </span>
+                    <small>
+                        Hours
+                    </small>
+                </div>
+                <div>
+                    <span class="count-number">
+                        00
+                    </span>
+                    <small>
+                        Minutes
+                    </small>
+                </div>
+                <div>
+                    <span class="count-number">
+                        00
+                    </span>
+                    <small>
+                        Seconds
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="countdown-rsvp">
+        <a href="#rsvp">
+            RSVP NOW
+        </a>
+    </div>
+</section>
+<!-- =======================================
+ITINERARY
+======================================= -->
+<section
+class="itinerary-section">
+    <div class="section-heading">
+        <p class="section-script">
+            The Celebration
+        </p>
+        <h2>
+            ITINERARY
+        </h2>
+    </div>
+    <div class="itinerary-card">
+        <div class="itinerary-frame">
+            <div class="timeline-row">
+                <span>
+                    11:00 AM
+                </span>
+                <p>
+                    Arrival of Coordinators & HMUA
+                </p>
+            </div>
+            <div class="timeline-row">
+                <span>
+                    11:30 AM
+                </span>
+                <p>
+                    Bridal Hair & Make-up
+                </p>
+            </div>
+            <div class="timeline-row">
+                <span>
+                    12:30 PM
+                </span>
+                <p>
+                    Arrival of Photographers
+                </p>
+            </div>
+            <div class="timeline-row">
+                <span>
+                    1:30 PM
+                </span>
+                <p>
+                    Bridal Robe Shoot
+                </p>
+            </div>
+            <div class="timeline-row">
+                <span>
+                    2:00 PM
+                </span>
+                <p>
+                    Female Entourage Shoot
+                </p>
+            </div>
+            <div class="timeline-row">
+                <span>
+                    2:30 PM
+                </span>
+                <p>
+                    Retouch & Change to Gown
+                </p>
+            </div>
+            <div class="timeline-row">
+                <span>
+                    3:00 PM
+                </span>
+                <p>
+                    Family & Entourage Photos
+                </p>
+            </div>
+            <div class="timeline-row">
+                <span>
+                    4:00 PM
+                </span>
+                <p>
+                    Wedding Ceremony
+                </p>
+            </div>
+            <div class="timeline-row">
+                <span>
+                    5:00 PM
+                </span>
+                <p>
+                    Newlywed Pictorial
+                </p>
+            </div>
+            <div class="timeline-row">
+                <span>
+                    6:30 PM
+                </span>
+                <p>
+                    Reception Begins
+                </p>
+            </div>
+            <div class="timeline-row">
+                <span>
+                    9:00 PM
+                </span>
+                <p>
+                    End of Celebration
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =======================================
+DRESS CODE + MENU
+======================================= -->
+<section class="details-board">
+    <!-- DRESS CODE -->
+    <div class="dress-code-card">
+        <p class="section-script">
+            What to Wear
+        </p>
+        <h2>
+            DRESS CODE
+        </h2>
+        <div class="dress-illustration">
+            <img
+                src="images/dress-code-placeholder.png"
+                alt="Dress Code Illustration">
+        </div>
+        <p class="dress-description">
+            Formal Elegance
+        </p>
+        <p class="dress-subtitle">
+            Kindly avoid white, bright red,
+            and entourage-inspired colours.
+        </p>
+        <div class="dress-swatches">
+            <div class="swatch graphite"></div>
+            <div class="swatch charcoal"></div>
+            <div class="swatch slate"></div>
+            <div class="swatch silver"></div>
+            <div class="swatch dove"></div>
+        </div>
+    </div>
+    <!-- MENU -->
+    <div class="menu-card">
+        <p class="section-script">
+            Reception Dining
+        </p>
+        <h2>
+            MENU
+        </h2>
+        <div class="menu-divider"></div>
+        <div class="menu-section">
+            <h3>
+                Starter
+            </h3>
+            <p>
+                Truffle Cream Soup
+            </p>
+        </div>
+        <div class="menu-section">
+            <h3>
+                Main Course
+            </h3>
+            <p>
+                Herb Crusted Chicken
+            </p>
+            <p>
+                Grilled Salmon
+            </p>
+        </div>
+        <div class="menu-section">
+            <h3>
+                Dessert
+            </h3>
+            <p>
+                Vanilla Bean Panna Cotta
+            </p>
+        </div>
+        <div class="menu-section">
+            <h3>
+                Drinks
+            </h3>
+            <p>
+                Wine & Mocktails
+            </p>
+        </div>
+    </div>
+</section>
+<!-- =======================================
 VENUE
-========================== */
-
-.venue-section {
-
-    max-width: 1600px;
-
-    margin: auto;
-
-    padding:
-    180px 60px;
-
-    display: grid;
-
-    grid-template-columns:
-    1fr 1.2fr;
-
-    gap: 80px;
-
-    align-items: center;
-
-}
-
-.venue-info h2 {
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-size: 42px;
-
-    font-weight: 400;
-
-}
-
-.venue-info h3 {
-
-    margin-top: 45px;
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-size: 32px;
-
-    font-weight: 400;
-
-}
-
-.venue-info p {
-
-    margin-top: 20px;
-
-    color: var(--muted);
-
-}
-
-.venue-button {
-
-    display: inline-block;
-
-    margin-top: 40px;
-
-    border:
-    1px solid var(--text);
-
-    padding:
-    14px 26px;
-
-    letter-spacing: 2px;
-
-    transition: .3s ease;
-
-}
-
-.venue-button:hover {
-
-    background: var(--text);
-
-    color: var(--bg);
-
-}
-
-.venue-map {
-
-    border:
-    1px solid var(--border);
-
-    padding: 20px;
-
-}
-
-.venue-map iframe {
-
-    width: 100%;
-
-    height: 500px;
-
-    border: none;
-
-}
-
-/* ==========================
-GALLERY
-========================== */
-
-.gallery-section {
-
-    max-width: 1600px;
-
-    margin: auto;
-
-    padding:
-    180px 60px;
-
-}
-
-.gallery-grid {
-
-    display: grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap: 24px;
-
-}
-
-.gallery-grid img {
-
-    aspect-ratio:
-    4 / 5;
-
-    object-fit: cover;
-
-    transition:
-    transform 1s ease,
-    filter 1s ease;
-
-    filter:
-    brightness(.95);
-
-    cursor: pointer;
-
-}
-
-.gallery-grid img:hover {
-
-    transform:
-    scale(1.03);
-
-    filter:
-    brightness(1.03);
-
-}
-
-/* ==========================
-RSVP
-========================== */
-
-.rsvp-section {
-
-    max-width: 900px;
-
-    margin: auto;
-
-    text-align: center;
-
-    padding:
-    220px 40px;
-
-}
-
-.rsvp-section h2 {
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-size: 48px;
-
-    font-weight: 400;
-
-}
-
-.rsvp-section p {
-
-    margin-top: 35px;
-
-    color: var(--muted);
-
-    font-size: 18px;
-
-}
-
-.rsvp-button {
-
-    display: inline-block;
-
-    margin-top: 45px;
-
-    border:
-    1px solid var(--text);
-
-    padding:
-    16px 40px;
-
-    letter-spacing: 3px;
-
-    transition: .3s ease;
-
-}
-
-.rsvp-button:hover {
-
-    background: var(--text);
-
-    color: var(--bg);
-
-}
-
-/* ==========================
+======================================= -->
+<section
+class="venue-section"
+id="venue">
+    <div class="venue-content">
+        <p class="section-script">
+            Our Venue
+        </p>
+        <h2>
+            ELIA EVENTS PLACE
+        </h2>
+        <p class="venue-location">
+            Amadeo, Cavite
+        </p>
+        <p class="venue-description">
+            Nestled among the cool landscapes
+            of Cavite, our chosen venue offers
+            a romantic setting for a celebration
+            shared with family and friends.
+        </p>
+        <a
+        href="https://share.google/w7ISjiEw8VKodiVLc"
+        target="_blank"
+        class="venue-button">
+            VIEW DIRECTIONS
+        </a>
+    </div>
+    <div class="venue-illustration">
+        <img
+            src="images/venue-placeholder.jpg"
+            alt="Venue Illustration Placeholder">
+    </div>
+</section>
+<!-- =======================================
+OUR STORY
+======================================= -->
+<section
+class="story-section"
+id="story">
+    <div class="section-heading">
+        <p class="section-script">
+            Our Story
+        </p>
+        <h2>
+            A FEW CHAPTERS
+        </h2>
+    </div>
+    <!-- CHAPTER 1 -->
+    <div class="story-chapter">
+        <div class="story-image">
+            <img
+                src="images/story-1.jpg"
+                alt="Story Image">
+        </div>
+        <div class="story-text">
+            <h3>
+                Chapter I
+            </h3>
+            <p>
+                Placeholder story text.
+                Replace this with your
+                own chapter later.
+            </p>
+        </div>
+    </div>
+    <!-- CHAPTER 2 -->
+    <div class="story-chapter reverse">
+        <div class="story-image">
+            <img
+                src="images/story-2.jpg"
+                alt="Story Image">
+        </div>
+        <div class="story-text">
+            <h3>
+                Chapter II
+            </h3>
+            <p>
+                Placeholder story text.
+                Replace this with your
+                own chapter later.
+            </p>
+        </div>
+    </div>
+    <!-- CHAPTER 3 -->
+    <div class="story-chapter">
+        <div class="story-image">
+            <img
+                src="images/story-3.jpg"
+                alt="Story Image">
+        </div>
+        <div class="story-text">
+            <h3>
+                Chapter III
+            </h3>
+            <p>
+                Placeholder story text.
+                Replace this with your
+                own chapter later.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- =======================================
+FINAL RSVP
+======================================= -->
+<section
+class="rsvp-section"
+id="rsvp">
+    <div class="rsvp-card">
+        <div class="wax-seal small-seal">
+            <div class="seal-inner">
+                K | P
+            </div>
+        </div>
+        <p class="section-script">
+            We Hope You Can Join Us
+        </p>
+        <h2>
+            RSVP
+        </h2>
+        <p class="rsvp-deadline">
+            Kindly respond on or before
+            June 30, 2026
+        </p>
+        <a
+        href="#"
+        class="rsvp-button">
+            RESPOND
+        </a>
+    </div>
+</section>
+<!-- =======================================
 FOOTER
-========================== */
-
-footer {
-
-    text-align: center;
-
-    padding:
-    100px 40px;
-
-    border-top:
-    1px solid var(--border);
-
-}
-
-.footer-monogram {
-
-    width: 90px;
-    height: 90px;
-
-    margin: auto;
-
-    border:
-    1px solid var(--border);
-
-    border-radius: 50%;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-size: 24px;
-
-}
-
-footer p {
-
-    margin-top: 30px;
-
-    font-family:
-    "Cormorant Garamond";
-
-    font-size: 28px;
-
-}
-
-footer small {
-
-    display: block;
-
-    margin-top: 15px;
-
-    color: var(--muted);
-
-}
-
-/* ==========================
-SCROLL REVEAL
-========================== */
-
-.reveal {
-
-    opacity: 0;
-
-    transform:
-    translateY(40px);
-
-    transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
-
-}
-
-.reveal.active {
-
-    opacity: 1;
-
-    transform:
-    translateY(0);
-
-}
-
-/* ==========================
-LIGHTBOX
-========================== */
-
-#lightbox {
-
-    position: fixed;
-
-    inset: 0;
-
-    background:
-    rgba(0,0,0,.92);
-
-    display: none;
-
-    justify-content: center;
-    align-items: center;
-
-    z-index: 99999;
-
-}
-
-#lightbox.active {
-
-    display: flex;
-
-}
-
-#lightbox img {
-
-    max-width: 90vw;
-
-    max-height: 90vh;
-
-    object-fit: contain;
-
-}
-
-/* ==========================
-MOBILE
-========================== */
-
-@media (max-width: 1100px) {
-
-    .hero {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .hero-right {
-
-        height: 60vh;
-
-        order: -1;
-
-    }
-
-    .story-section {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .event-board {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .dress-column {
-
-        border-left: none;
-        border-right: none;
-
-        border-top:
-        1px solid var(--border);
-
-        border-bottom:
-        1px solid var(--border);
-
-        padding:
-        50px 0;
-
-    }
-
-    .venue-section {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .gallery-grid {
-
-        grid-template-columns:
-        repeat(2,1fr);
-
-    }
-
-}
-
-@media (max-width: 700px) {
-
-    .floating-nav {
-
-        display: none;
-
-    }
-
-    .gallery-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .hero-left,
-    .story-section,
-    .event-board,
-    .venue-section,
-    .gallery-section {
-
-        padding-left: 24px;
-        padding-right: 24px;
-
-    }
-
-    .timeline-item {
-
-        grid-template-columns: 1fr;
-
-        gap: 10px;
-
-    }
-
-    .timeline-item::before {
-
-        display: none;
-
-    }
-
-}
-
-/* ==========================
-ACTIVE NAV
-========================== */
-.active-link {
-    color: var(--wine) !important;
-    opacity: 1 !important;
-}
-/* ==========================
-PAGE LOAD
-========================== */
-body {
-    opacity: 0;
-}
-body.page-loaded {
-    opacity: 1;
-    transition:
-    opacity 1.5s ease;
-}
-
-/* ==================================================
-   VERSION 2.1 RESPONSIVE REFINEMENT
-================================================== */
-/* ==========================================
-   LARGE TABLETS + SMALL LAPTOPS
-========================================== */
-@media (max-width: 1200px) {
-    .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-    }
-    .hero-right {
-        height: 70vh;
-        order: -1;
-    }
-    .hero-left {
-        padding: 80px 50px;
-        text-align: center;
-        align-items: center;
-    }
-    .hero-monogram {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .hero-tagline {
-        max-width: 600px;
-    }
-    .floating-nav {
-        right: 20px;
-    }
-    .story-section {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .story-image {
-        max-width: 500px;
-        margin: auto;
-    }
-    .event-board {
-        grid-template-columns: 1fr;
-        gap: 70px;
-    }
-    .dress-column {
-        border-left: none;
-        border-right: none;
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-        padding: 50px 0;
-    }
-    .venue-section {
-        grid-template-columns: 1fr;
-        gap: 60px;
-    }
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-/* ==========================================
-   TABLETS
-========================================== */
-@media (max-width: 1024px) {
-    .hero-title {
-        font-size: clamp(3rem, 6vw, 4.5rem);
-    }
-    .intro-title {
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
-    }
-    .story-section,
-    .event-board,
-    .venue-section {
-        padding: 120px 40px;
-    }
-    .countdown-section {
-        padding: 120px 40px;
-    }
-    .gallery-section {
-        padding: 120px 40px;
-    }
-    .rsvp-section {
-        padding: 150px 40px;
-    }
-}
-/* ==========================================
-   MOBILE
-========================================== */
-@media (max-width: 768px) {
-    #themeToggle {
-        top: 15px;
-        left: 15px;
-        font-size: 10px;
-        padding: 8px 12px;
-    }
-    .floating-nav {
-        display: none;
-    }
-    .hero-right {
-        height: 55vh;
-    }
-    .hero-left {
-        padding: 60px 24px;
-    }
-    .hero-title {
-        font-size: clamp(2.4rem, 9vw, 3.5rem);
-        line-height: 1.05;
-    }
-    .hero-overline {
-        letter-spacing: 2px;
-        font-size: 11px;
-    }
-    .hero-date {
-        font-size: 14px;
-    }
-    .hero-tagline {
-        font-size: 15px;
-    }
-    .countdown-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        text-align: center;
-    }
-    .timeline-item::before {
-        display: none;
-    }
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-    .story-section,
-    .event-board,
-    .venue-section,
-    .gallery-section {
-        padding: 90px 24px;
-    }
-    .countdown-section {
-        padding: 90px 24px;
-    }
-    .rsvp-section {
-        padding: 120px 24px;
-    }
-    footer {
-        padding: 70px 24px;
-    }
-}
-/* ==========================================
-   VERY SMALL PHONES
-========================================== */
-@media (max-width: 480px) {
-    .hero-right {
-        height: 45vh;
-    }
-    .hero-title {
-        font-size: 2.2rem;
-    }
-    .intro-title {
-        font-size: 2.2rem;
-    }
-    .crest {
-        width: 90px;
-        height: 90px;
-        font-size: 24px;
-    }
-    .hero-monogram {
-        width: 70px;
-        height: 70px;
-        font-size: 20px;
-    }
-}
-
-/* ==========================================
-   SHORT SCREENS
-   (Landscape Phones)
-========================================== */
-@media (max-height: 500px) {
-    #intro-screen {
-        align-items: flex-start;
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-    .crest {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 20px;
-        font-size: 18px;
-    }
-    .intro-title {
-        font-size: 2rem;
-    }
-    .intro-date {
-        margin-top: 15px;
-    }
-    #openInvitation {
-        margin-top: 25px;
-    }
-}
-
-/* ==========================================
-   IPAD LANDSCAPE REFINEMENT
-========================================== */
-@media (min-width: 1024px) and (max-width: 1366px) {
-    .hero-left {
-        padding: 60px 50px;
-    }
-    .hero-title {
-        font-size: clamp(
-            3rem,
-            4vw,
-            4.5rem
-        );
-    }
-    .story-section,
-    .event-board,
-    .venue-section {
-        padding: 100px 40px;
-    }
-    .gallery-section {
-        padding: 100px 40px;
-    }
-}
+======================================= -->
+<footer>
+    <div class="footer-divider"></div>
+    <div class="footer-monogram">
+        K | P
+    </div>
+    <h3>
+        Monkeil Romen
+        &
+        Patricia Louise Santos
+    </h3>
+    <p>
+        August 20, 2026
+    </p>
+    <small>
+        © 2026 All Rights Reserved
+    </small>
+</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
