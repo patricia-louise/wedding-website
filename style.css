@@ -128,6 +128,9 @@ INTRO
 
     z-index: 9999;
 
+   overflow-y: auto;
+   padding: 40px 20px;
+
 }
 
 .intro-content {
@@ -1429,5 +1432,56 @@ body.page-loaded {
         width: 70px;
         height: 70px;
         font-size: 20px;
+    }
+}
+
+/* ==========================================
+   SHORT SCREENS
+   (Landscape Phones)
+========================================== */
+@media (max-height: 500px) {
+    #intro-screen {
+        align-items: flex-start;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .crest {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+    .intro-title {
+        font-size: 2rem;
+    }
+    .intro-date {
+        margin-top: 15px;
+    }
+    #openInvitation {
+        margin-top: 25px;
+    }
+}
+
+/* ==========================================
+   IPAD LANDSCAPE REFINEMENT
+========================================== */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .hero-left {
+        padding: 60px 50px;
+    }
+    .hero-title {
+        font-size: clamp(
+            3rem,
+            4vw,
+            4.5rem
+        );
+    }
+    .story-section,
+    .event-board,
+    .venue-section {
+        padding: 100px 40px;
+    }
+    .gallery-section {
+        padding: 100px 40px;
     }
 }
