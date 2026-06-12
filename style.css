@@ -141,6 +141,8 @@ LANDING PAGE
 
 #intro-screen {
 
+    color: white;
+   
     position: fixed;
 
     inset: 0;
