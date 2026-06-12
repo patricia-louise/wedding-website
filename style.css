@@ -36,6 +36,10 @@ https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=C
     "Cinzel Decorative",
     serif;
 
+   --font-heading2:
+    "Cormorant Garamond",
+    serif;
+
     --font-body:
     "Cormorant Garamond",
     serif;
@@ -222,7 +226,7 @@ body::before {
 
 .landing-logo {
 
-    width: 280px;
+    width: 200px;
 
     max-width: 65vw;
 
@@ -404,7 +408,7 @@ body::before {
 
 .header-logo {
 
-    width: 120px;
+    width: 60px;
 
     filter:
     invert (1)
@@ -580,7 +584,7 @@ body::before {
     5vw,
     5.5rem);
 
-    font-weight: 600;
+    font-weight: 400;
 
     line-height: 1.15;
 
@@ -598,6 +602,8 @@ body::before {
     2.2rem,
     4vw,
     4rem);
+
+   font-weight: 200;
 
     color:
     var(--accent);
@@ -683,7 +689,7 @@ body::before {
 .section-heading h2 {
 
     font-family:
-    var(--font-heading);
+    var(--font-heading2);
 
     font-size:
     clamp(
@@ -1213,7 +1219,7 @@ body::before {
 .story-text h3 {
 
     font-family:
-    var(--font-script);
+    var(--font-heading2);
 
     font-size:
     clamp(
