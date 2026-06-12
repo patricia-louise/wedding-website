@@ -178,9 +178,15 @@ body::before {
 
     z-index: 9999;
 
+    color: white;
+
 }
 
 .landing-background {
+
+    position: absolute;
+
+    inset: 0;
 
     background-image:
     url("images/landing-bg.jpg");
@@ -190,6 +196,9 @@ body::before {
 
     background-position:
     center 35%;
+
+    background-repeat:
+    no-repeat;
 
 }
 
@@ -413,7 +422,7 @@ body::before {
     width: 60px;
 
     filter:
-    invert (1)
+    invert(1)
     drop-shadow(
     0 4px 10px
     rgba(0,0,0,.15));
