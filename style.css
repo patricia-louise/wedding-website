@@ -1,77 +1,96 @@
-/* ==========================================
-   V5 DESIGN SYSTEM
-========================================== */
+```css
+/* ==================================================
+   V5.1 DESIGN SYSTEM
+================================================== */
 
-/* LIGHT MODE */
+/* GOOGLE FONTS
+
+Replace your current Google Fonts import with:
+
+https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Imperial+Script&family=Inter:wght@300;400;500&display=swap
+
+*/
+
+/* ==================================================
+   LIGHT MODE
+================================================== */
 
 :root {
 
-  /* COLORS */
+    /* COLORS */
 
-  --bg: #f8f5f0;
-  --paper: #fcfaf6;
+    --bg: #f8f5f0;
+    --paper: #fcfaf6;
 
-  --text: #171717;
-  --muted: #6b6b6b;
+    --text: #171717;
+    --muted: #6b6b6b;
 
-  --accent: #7d1628;
-  --accent-light: #b32740;
+    --accent: #7d1628;
+    --accent-light: #a0283f;
 
-  --border: rgba(0,0,0,.10);
+    --border:
+    rgba(0,0,0,.10);
 
-  /* TYPOGRAPHY */
+    /* TYPOGRAPHY */
 
-  --font-heading:
-  "Cinzel Decorative", serif;
+    --font-heading:
+    "Cinzel Decorative",
+    serif;
 
-  --font-body:
-  "Cormorant Garamond", serif;
+    --font-body:
+    "Cormorant Garamond",
+    serif;
 
-  --font-script:
-  "Imperial Script", cursive;
+    --font-script:
+    "Imperial Script",
+    cursive;
 
-  --font-sans:
-  "Inter", sans-serif;
+    --font-sans:
+    "Inter",
+    sans-serif;
 
-  /* FONT SIZES */
+    /* FONT SIZES */
 
-  --fs-xs: .8rem;
-  --fs-sm: 1rem;
-  --fs-md: 1.25rem;
-  --fs-lg: 1.75rem;
-  --fs-xl: 2.5rem;
-  --fs-xxl: 5rem;
+    --fs-xs: .8rem;
+    --fs-sm: 1rem;
+    --fs-md: 1.25rem;
+    --fs-lg: 1.75rem;
+    --fs-xl: 2.5rem;
+    --fs-xxl: 5rem;
 
-  /* SPACING */
+    /* SPACING */
 
-  --space-sm: 10px;
-  --space-md: 20px;
-  --space-lg: 40px;
-  --space-xl: 80px;
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 32px;
+    --space-lg: 64px;
+    --space-xl: 120px;
 
 }
 
-/* DARK MODE */
+/* ==================================================
+   DARK MODE
+================================================== */
 
 body.dark {
 
-  --bg: #111111;
-  --paper: #171717;
+    --bg: #111111;
+    --paper: #171717;
 
-  --text: #f5f5f5;
-  --muted: #bcbcbc;
+    --text: #f5f5f5;
+    --muted: #bcbcbc;
 
-  --accent: #b32740;
-  --accent-light: #d14a63;
+    --accent: #b32740;
+    --accent-light: #d34d65;
 
-  --border:
-  rgba(255,255,255,.12);
+    --border:
+    rgba(255,255,255,.12);
 
 }
 
-/* ==========================
-RESET
-========================== */
+/* ==================================================
+   RESET
+================================================== */
 
 * {
 
@@ -90,13 +109,14 @@ html {
 
 body {
 
-    background: var(--bg);
+    background:
+    var(--bg);
 
-    color: var(--text);
+    color:
+    var(--text);
 
     font-family:
-    Inter,
-    sans-serif;
+    var(--font-body);
 
     overflow-x: hidden;
 
@@ -106,9 +126,9 @@ body {
 
 }
 
-/* ==========================
-TEXTURE
-========================== */
+/* ==================================================
+   SUBTLE PAPER TEXTURE
+================================================== */
 
 body::before {
 
@@ -129,20 +149,19 @@ body::before {
     transparent 1px);
 
     background-size:
-    12px 12px;
+    14px 14px;
 
     z-index: -1;
 
 }
 
-/* ==========================
-LANDING PAGE
-========================== */
+/* ==================================================
+   LANDING PAGE
+   ALWAYS DARK
+================================================== */
 
 #intro-screen {
 
-    color: white;
-   
     position: fixed;
 
     inset: 0;
@@ -155,6 +174,8 @@ LANDING PAGE
     overflow: hidden;
 
     z-index: 9999;
+
+    color: white;
 
 }
 
@@ -171,8 +192,6 @@ LANDING PAGE
 
     background-position:
     center center;
-
-    transform: scale(1.03);
 
 }
 
@@ -195,47 +214,56 @@ LANDING PAGE
 
     text-align: center;
 
-    width: min(90%,900px);
-
-    color: white;
+    width:
+    min(90%,1000px);
 
 }
 
+/* ==================================================
+   LANDING PAGE LOGO
+================================================== */
+
 .landing-logo {
 
-    width: 240px;
+    width: 320px;
 
-    max-width: 60vw;
+    max-width: 65vw;
 
     margin-bottom: 30px;
 
     filter:
     drop-shadow(
-    0 10px 30px
+    0 12px 25px
     rgba(0,0,0,.35));
 
 }
 
+/* ==================================================
+   LANDING TYPOGRAPHY
+================================================== */
+
 .intro-overline {
 
     font-family:
-    Cinzel,
-    serif;
+    var(--font-script);
 
     font-size:
-    clamp(18px,2vw,24px);
+    clamp(
+    2rem,
+    4vw,
+    4rem);
 
-    letter-spacing: 4px;
+    color:
+    white;
 
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 
 }
 
 .intro-names {
 
     font-family:
-    Cinzel,
-    serif;
+    var(--font-heading);
 
     font-size:
     clamp(
@@ -243,9 +271,9 @@ LANDING PAGE
     7vw,
     6rem);
 
-    font-weight: 500;
+    font-weight: 400;
 
-    line-height: 1.1;
+    line-height: 1.15;
 
 }
 
@@ -253,18 +281,32 @@ LANDING PAGE
 
     display: block;
 
-    margin: 12px 0;
+    font-family:
+    var(--font-script);
 
-    color: #ffffff;
+    font-size:
+    clamp(
+    2rem,
+    4vw,
+    4rem);
+
+    margin:
+    15px 0;
 
 }
 
 .intro-date {
 
-    font-size:
-    clamp(18px,2vw,24px);
+    font-family:
+    var(--font-sans);
 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+
+    font-size:
+    clamp(
+    1rem,
+    1.5vw,
+    1.3rem);
 
     margin-top: 30px;
 
@@ -274,15 +316,20 @@ LANDING PAGE
 
     margin-top: 45px;
 
-    background: transparent;
+    padding:
+    16px 36px;
 
     border:
     1px solid white;
 
-    color: white;
+    background:
+    transparent;
 
-    padding:
-    16px 36px;
+    color:
+    white;
+
+    font-family:
+    var(--font-sans);
 
     letter-spacing: 3px;
 
@@ -295,15 +342,17 @@ LANDING PAGE
 
 #openInvitation:hover {
 
-    background: white;
+    background:
+    white;
 
-    color: black;
+    color:
+    black;
 
 }
 
-/* ==========================
-MAIN SITE
-========================== */
+/* ==================================================
+   MAIN SITE
+================================================== */
 
 #mainSite {
 
@@ -311,9 +360,9 @@ MAIN SITE
 
 }
 
-/* ==========================
-HEADER
-========================== */
+/* ==================================================
+   HEADER
+================================================== */
 
 .site-header {
 
@@ -323,15 +372,6 @@ HEADER
 
     z-index: 1000;
 
-    background:
-    rgba(248,245,240,.92);
-
-    backdrop-filter:
-    blur(14px);
-
-    border-bottom:
-    1px solid var(--border);
-
     display: flex;
 
     justify-content:
@@ -340,33 +380,39 @@ HEADER
     align-items: center;
 
     padding:
-    16px 40px;
+    14px 40px;
 
-}
-
-body.dark .site-header {
+    border-bottom:
+    1px solid var(--border);
 
     background:
     rgba(17,17,17,.92);
 
+    backdrop-filter:
+    blur(12px);
+
 }
+
+/* LOGO */
 
 .header-logo {
 
-    width: 95px; /* larger */
+    width: 120px;
 
     filter:
     drop-shadow(
-    0 6px 12px
+    0 4px 10px
     rgba(0,0,0,.15));
 
 }
+
+/* NAV */
 
 .main-nav {
 
     display: flex;
 
-    gap: 40px;
+    gap: 30px;
 
 }
 
@@ -376,14 +422,24 @@ body.dark .site-header {
 
     text-decoration: none;
 
-    color: var(--text);
+    color: white;
 
-    font-size: 12px;
+    font-family:
+    var(--font-sans);
 
-    letter-spacing: 3px;
+    font-size: 13px;
+
+    letter-spacing: 2px;
 
     transition:
     .3s ease;
+
+}
+
+.main-nav a:hover {
+
+    color:
+    var(--accent);
 
 }
 
@@ -408,22 +464,16 @@ body.dark .site-header {
 
 }
 
-.main-nav a:hover {
-
-    color:
-    var(--accent);
-
-}
-
 .main-nav a:hover::after {
 
     width: 100%;
 
 }
-
-/* ==========================
-THEME BUTTON
-========================== */
+```
+```css
+/* ==================================================
+   THEME TOGGLE
+================================================== */
 
 #themeToggle {
 
@@ -437,14 +487,17 @@ THEME BUTTON
     background:
     var(--paper);
 
-    border:
-    1px solid var(--border);
-
     color:
     var(--text);
 
+    border:
+    1px solid var(--border);
+
     padding:
     12px 18px;
+
+    font-family:
+    var(--font-sans);
 
     font-size: 11px;
 
@@ -452,20 +505,33 @@ THEME BUTTON
 
     cursor: pointer;
 
+    transition:
+    .3s ease;
+
 }
 
-/* ==========================
-HERO
-========================== */
+#themeToggle:hover {
+
+    border-color:
+    var(--accent);
+
+    color:
+    var(--accent);
+
+}
+
+/* ==================================================
+   HERO
+================================================== */
 
 .hero {
 
-    min-height: 100vh;
+    min-height: 92vh;
 
     display: grid;
 
     grid-template-columns:
-    1fr 1fr;
+    42% 58%;
 
 }
 
@@ -478,34 +544,35 @@ HERO
     justify-content: center;
 
     padding:
-    120px 8vw;
+    100px 7vw;
 
 }
 
 .hero-intro {
 
-    font-size:
-    1.25rem;
+    font-family:
+    var(--font-body);
 
-    letter-spacing: 2px;
+    font-size: 1.35rem;
 
-    margin-bottom: 28px;
+    letter-spacing: 1px;
+
+    margin-bottom: 25px;
 
 }
 
 .hero-title {
 
     font-family:
-    Cinzel,
-    serif;
+    var(--font-heading);
 
     font-size:
     clamp(
-    3.5rem,
-    6vw,
-    6.5rem);
+    3rem,
+    5vw,
+    5.5rem);
 
-    line-height: 1.05;
+    line-height: 1.15;
 
 }
 
@@ -513,21 +580,30 @@ HERO
 
     display: block;
 
-    margin: 16px 0;
+    font-family:
+    var(--font-script);
+
+    font-size:
+    clamp(
+    2.2rem,
+    4vw,
+    4rem);
 
     color:
     var(--accent);
+
+    margin:
+    10px 0;
 
 }
 
 .hero-invitation {
 
-    margin-top: 30px;
+    margin-top: 35px;
 
-    font-size:
-    1.25rem;
+    font-size: 1.35rem;
 
-    line-height: 2;
+    line-height: 1.8;
 
     color:
     var(--muted);
@@ -536,33 +612,40 @@ HERO
 
 .hero-divider {
 
-    width: 100px;
+    width: 80px;
     height: 1px;
 
     background:
     var(--accent);
 
     margin:
-    40px 0;
+    35px 0;
 
 }
 
 .hero-date {
 
-    font-size:
-    1.5rem;
+    font-size: 1.8rem;
+
+    font-family:
+    var(--font-body);
 
 }
 
 .hero-time {
 
-    margin-top: 12px;
+    margin-top: 10px;
 
-    font-size:
-    1.25rem;
+    font-size: 1.25rem;
 
     color:
     var(--muted);
+
+}
+
+.hero-image {
+
+    overflow: hidden;
 
 }
 
@@ -574,11 +657,10 @@ HERO
     object-fit: cover;
 
 }
-```
-```css
-/* ==========================
-SECTION HEADINGS
-========================== */
+
+/* ==================================================
+   SECTION HEADINGS
+================================================== */
 
 .section-heading {
 
@@ -591,14 +673,13 @@ SECTION HEADINGS
 .section-heading h2 {
 
     font-family:
-    Cinzel,
-    serif;
+    var(--font-heading);
 
     font-size:
     clamp(
-    2.8rem,
-    5vw,
-    4.5rem);
+    2rem,
+    4vw,
+    4rem);
 
     font-weight: 400;
 
@@ -608,28 +689,27 @@ SECTION HEADINGS
 
 .section-script {
 
-    margin-top: 12px;
+    font-family:
+    var(--font-script);
 
     font-size:
     clamp(
-    1rem,
-    1.5vw,
-    1.3rem);
+    2rem,
+    3vw,
+    3.2rem);
 
     color:
     var(--accent);
 
-    letter-spacing: 2px;
+    margin-top: 10px;
 
 }
 
-/* ==========================
-BUTTONS
-========================== */
+/* ==================================================
+   BUTTONS
+================================================== */
 
-.button-style,
-.countdown-rsvp a,
-.rsvp-button {
+.button-style {
 
     display: inline-block;
 
@@ -644,19 +724,17 @@ BUTTONS
     padding:
     14px 30px;
 
-    letter-spacing: 2px;
+    font-family:
+    var(--font-sans);
 
-    background:
-    transparent;
+    letter-spacing: 2px;
 
     transition:
     .3s ease;
 
 }
 
-.button-style:hover,
-.countdown-rsvp a:hover,
-.rsvp-button:hover {
+.button-style:hover {
 
     background:
     var(--accent);
@@ -669,9 +747,9 @@ BUTTONS
 
 }
 
-/* ==========================
-COUNTDOWN
-========================== */
+/* ==================================================
+   COUNTDOWN
+================================================== */
 
 .countdown-section {
 
@@ -704,7 +782,7 @@ COUNTDOWN
     1px solid var(--border);
 
     padding:
-    50px 40px;
+    60px 40px;
 
     text-align: center;
 
@@ -712,11 +790,32 @@ COUNTDOWN
 
 .countdown-card h3 {
 
-    margin-bottom: 35px;
+    font-family:
+    var(--font-sans);
 
     letter-spacing: 3px;
 
-    font-size: 13px;
+    margin-bottom: 30px;
+
+    font-size: 12px;
+
+}
+
+.count-number {
+
+    display: block;
+
+    font-family:
+    var(--font-heading);
+
+    color:
+    var(--accent);
+
+    font-size:
+    clamp(
+    2rem,
+    4vw,
+    3.5rem);
 
 }
 
@@ -727,29 +826,7 @@ COUNTDOWN
     grid-template-columns:
     repeat(4,1fr);
 
-    gap: 18px;
-
-}
-
-.count-number {
-
-    display: block;
-
-    font-family:
-    Cinzel,
-    serif;
-
-    font-size: 3rem;
-
-    color:
-    var(--accent);
-
-}
-
-.countdown-grid small {
-
-    color:
-    var(--muted);
+    gap: 15px;
 
 }
 
@@ -761,9 +838,9 @@ COUNTDOWN
 
 }
 
-/* ==========================
-ITINERARY
-========================== */
+/* ==================================================
+   ITINERARY
+================================================== */
 
 .itinerary-section {
 
@@ -778,13 +855,13 @@ ITINERARY
 
 .itinerary-card {
 
+    background:
+    var(--paper);
+
     border:
     1px solid var(--border);
 
-    padding: 18px;
-
-    background:
-    var(--paper);
+    padding: 20px;
 
 }
 
@@ -803,15 +880,14 @@ ITINERARY
     display: grid;
 
     grid-template-columns:
-    170px 1fr;
+    160px 1fr;
+
+    gap: 25px;
 
     align-items: center;
 
-}
-
-.timeline-row + .timeline-row {
-
-    margin-top: 18px;
+    padding:
+    14px 0;
 
 }
 
@@ -821,21 +897,24 @@ ITINERARY
     var(--accent);
 
     border-right:
-    1px solid var(--border);
+    1px solid var(--accent);
 
     padding-right: 20px;
+
+    font-family:
+    var(--font-sans);
 
 }
 
 .timeline-row p {
 
-    padding-left: 20px;
+    padding-left: 10px;
 
 }
 
-/* ==========================
-DETAILS BOARD
-========================== */
+/* ==================================================
+   DRESS CODE + MENU
+================================================== */
 
 .details-board {
 
@@ -871,22 +950,12 @@ DETAILS BOARD
 
 }
 
-.dress-code-card h2,
-.menu-card h2,
-.rsvp-card h2 {
-
-    font-weight: 400;
-
-    letter-spacing: 4px;
-
-}
-
 .dress-illustration {
 
-    margin:
-    35px auto;
-
     max-width: 260px;
+
+    margin:
+    30px auto;
 
 }
 
@@ -898,17 +967,16 @@ DETAILS BOARD
 
 .dress-description {
 
-    font-size:
-    1.2rem;
+    font-size: 1.3rem;
 
 }
 
 .dress-subtitle {
 
-    margin-top: 15px;
-
     color:
     var(--muted);
+
+    margin-top: 10px;
 
 }
 
@@ -918,7 +986,7 @@ DETAILS BOARD
 
     justify-content: center;
 
-    gap: 14px;
+    gap: 16px;
 
     margin-top: 35px;
 
@@ -926,37 +994,20 @@ DETAILS BOARD
 
 .swatch {
 
-    width: 70px;
-    height: 36px;
+    width: 72px;
+    height: 40px;
 
     border:
     1px solid var(--border);
 
-}
+    border-radius: 2px;
 
-.graphite {
-    background:#474747;
 }
-
-.charcoal {
-    background:#2e2e2e;
-}
-
-.slate {
-    background:#6f6f6f;
-}
-
-.silver {
-    background:#cfcfcf;
-}
-
-.dove {
-    background:#ececec;
-}
-
-/* ==========================
-MENU
-========================== */
+```
+```css
+/* ==================================================
+   MENU
+================================================== */
 
 .menu-divider {
 
@@ -979,21 +1030,30 @@ MENU
 
 .menu-section h3 {
 
+    font-family:
+    var(--font-body);
+
     color:
     var(--accent);
 
     font-size:
-    1.4rem;
-
-    margin-bottom: 10px;
+    1.5rem;
 
     font-weight: 500;
 
+    margin-bottom: 10px;
+
 }
 
-/* ==========================
-VENUE
-========================== */
+.menu-section p {
+
+    line-height: 1.8;
+
+}
+
+/* ==================================================
+   VENUE
+================================================== */
 
 .venue-section {
 
@@ -1018,11 +1078,13 @@ VENUE
 .venue-name {
 
     font-family:
-    Cinzel,
-    serif;
+    var(--font-heading);
 
     font-size:
-    2.2rem;
+    clamp(
+    2rem,
+    4vw,
+    3.5rem);
 
     margin-bottom: 15px;
 
@@ -1032,6 +1094,11 @@ VENUE
 
     color:
     var(--accent);
+
+    font-family:
+    var(--font-sans);
+
+    letter-spacing: 2px;
 
     margin-bottom: 25px;
 
@@ -1043,6 +1110,8 @@ VENUE
     var(--muted);
 
     line-height: 1.9;
+
+    max-width: 550px;
 
     margin-bottom: 35px;
 
@@ -1065,9 +1134,9 @@ VENUE
 
 }
 
-/* ==========================
-STORY
-========================== */
+/* ==================================================
+   STORY
+================================================== */
 
 .story-section {
 
@@ -1087,11 +1156,11 @@ STORY
     grid-template-columns:
     1fr 1fr;
 
-    gap: 70px;
+    gap: 80px;
 
     align-items: center;
 
-    margin-top: 80px;
+    margin-top: 100px;
 
 }
 
@@ -1107,21 +1176,43 @@ STORY
 
 }
 
+.story-image {
+
+    overflow: hidden;
+
+}
+
 .story-image img {
 
     width: 100%;
 
     display: block;
 
+    transition:
+    transform .8s ease;
+
+}
+
+.story-image:hover img {
+
+    transform:
+    scale(1.03);
+
 }
 
 .story-text h3 {
 
     font-family:
-    Cinzel,
-    serif;
+    var(--font-script);
 
-    font-size: 2rem;
+    font-size:
+    clamp(
+    2.2rem,
+    3vw,
+    3.5rem);
+
+    color:
+    var(--accent);
 
     margin-bottom: 20px;
 
@@ -1129,16 +1220,19 @@ STORY
 
 .story-text p {
 
-    color:
-    var(--muted);
+    font-size:
+    1.15rem;
 
     line-height: 1.9;
 
+    color:
+    var(--muted);
+
 }
 
-/* ==========================
-RSVP
-========================== */
+/* ==================================================
+   RSVP
+================================================== */
 
 .rsvp-section {
 
@@ -1159,23 +1253,18 @@ RSVP
     border:
     1px solid var(--border);
 
-    text-align: center;
-
     padding:
-    80px 40px;
+    90px 40px;
+
+    text-align: center;
 
 }
 
 .rsvp-logo {
 
-    width: 120px;
+    width: 140px;
 
-    margin-bottom: 35px;
-
-    filter:
-    drop-shadow(
-    0 8px 15px
-    rgba(0,0,0,.15));
+    margin-bottom: 30px;
 
 }
 
@@ -1186,11 +1275,14 @@ RSVP
 
     margin-bottom: 35px;
 
+    font-size:
+    1.2rem;
+
 }
 
-/* ==========================
-FOOTER
-========================== */
+/* ==================================================
+   FOOTER
+================================================== */
 
 footer {
 
@@ -1203,11 +1295,11 @@ footer {
 
 .footer-divider {
 
-    width: 120px;
+    width: 140px;
     height: 1px;
 
     background:
-    var(--border);
+    var(--accent);
 
     margin:
     0 auto 40px;
@@ -1216,23 +1308,25 @@ footer {
 
 .footer-logo {
 
-    width: 100px;
+    width: 120px;
 
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 
 }
 
 .footer-couple {
 
+    font-family:
+    var(--font-heading);
+
     color:
     var(--accent);
 
-    font-family:
-    Cinzel,
-    serif;
-
     font-size:
-    2rem;
+    clamp(
+    1.8rem,
+    3vw,
+    3rem);
 
     font-weight: 400;
 
@@ -1255,9 +1349,25 @@ footer small {
 
 }
 
-/* ==========================
-REVEALS
-========================== */
+/* ==================================================
+   DARK MODE IMAGE INVERSION
+================================================== */
+
+body.dark .header-logo,
+body.dark .footer-logo,
+body.dark .rsvp-logo,
+body.dark .dress-illustration img,
+body.dark .venue-illustration img {
+
+    filter:
+    invert(1)
+    brightness(1.2);
+
+}
+
+/* ==================================================
+   REVEAL ANIMATIONS
+================================================== */
 
 .reveal {
 
@@ -1288,16 +1398,13 @@ REVEALS
 
 }
 
-/* ==========================
-RESPONSIVE
-========================== */
+/* ==================================================
+   RESPONSIVE
+================================================== */
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
 
-    .hero,
-    .venue-section,
-    .details-board,
-    .story-chapter {
+    .hero {
 
         grid-template-columns:
         1fr;
@@ -1308,9 +1415,13 @@ RESPONSIVE
 
         order: -1;
 
+        min-height: 65vh;
+
     }
 
-    .countdown-wrapper {
+    .details-board,
+    .venue-section,
+    .story-chapter {
 
         grid-template-columns:
         1fr;
@@ -1324,13 +1435,13 @@ RESPONSIVE
     .site-header {
 
         padding:
-        15px 20px;
+        14px 20px;
 
     }
 
     .header-logo {
 
-        width: 70px;
+        width: 80px;
 
     }
 
@@ -1342,9 +1453,23 @@ RESPONSIVE
 
     .main-nav a {
 
-        font-size: 10px;
+        font-size: 11px;
 
         letter-spacing: 1px;
+
+    }
+
+    .hero-content {
+
+        padding:
+        70px 30px;
+
+    }
+
+    .countdown-wrapper {
+
+        grid-template-columns:
+        1fr;
 
     }
 
@@ -1359,6 +1484,8 @@ RESPONSIVE
 
         grid-template-columns:
         1fr;
+
+        gap: 8px;
 
     }
 
@@ -1375,6 +1502,74 @@ RESPONSIVE
         padding-left: 0;
 
     }
+
+    .story-chapter {
+
+        gap: 40px;
+
+        margin-top: 70px;
+
+    }
+
+    #themeToggle {
+
+        right: 15px;
+        bottom: 15px;
+
+    }
+
+}
+
+/* ==================================================
+   V5.1 LUXURY POLISH
+================================================== */
+
+.section-heading {
+
+    position: relative;
+
+}
+
+.section-heading::after {
+
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 1px;
+
+    background:
+    var(--accent);
+
+    margin:
+    20px auto 0;
+
+    opacity: .6;
+
+}
+
+.countdown-card,
+.itinerary-card,
+.dress-code-card,
+.menu-card,
+.rsvp-card {
+
+    box-shadow:
+    0 8px 30px
+    rgba(0,0,0,.03);
+
+}
+
+body.dark .countdown-card,
+body.dark .itinerary-card,
+body.dark .dress-code-card,
+body.dark .menu-card,
+body.dark .rsvp-card {
+
+    box-shadow:
+    0 8px 30px
+    rgba(0,0,0,.25);
 
 }
 ```
