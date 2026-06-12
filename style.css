@@ -431,7 +431,7 @@ body::before {
     letter-spacing: 2px;
 
     transition:
-    .3s ease;
+    .2s ease;
 
 }
 
@@ -570,6 +570,8 @@ body::before {
     3rem,
     5vw,
     5.5rem);
+
+    font-weight: 600;
 
     line-height: 1.15;
 
@@ -1355,6 +1357,7 @@ footer small {
 body.dark .header-logo,
 body.dark .footer-logo,
 body.dark .rsvp-logo,
+body.dark .landing-logo,
 body.dark .dress-illustration img,
 body.dark .venue-illustration img {
 
