@@ -199,7 +199,7 @@ body::before {
     inset: 0;
 
     background:
-    rgba(0,0,0,.45);
+    rgba(0,0,0,1);
 
 }
 
@@ -353,7 +353,7 @@ body::before {
     white;
 
     color:
-    black;
+    maroon;
 
 }
 
@@ -407,6 +407,7 @@ body::before {
     width: 120px;
 
     filter:
+    invert (1)
     drop-shadow(
     0 4px 10px
     rgba(0,0,0,.15));
@@ -1363,6 +1364,7 @@ footer small {
 ================================================== */
 
 body.dark .header-logo,
+body.light .header-logo,
 body.dark .footer-logo,
 body.dark .rsvp-logo,
 body.dark .landing-logo,
