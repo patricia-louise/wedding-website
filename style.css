@@ -230,10 +230,7 @@ body::before {
 
     margin-bottom: 30px;
 
-    filter:
-    drop-shadow(
-    0 12px 25px
-    rgba(0,0,0,.35));
+    filter: invert(1) brightness(1.2) drop-shadow( 0 12px 25px rgba(0,0,0,.35) );
 
 }
 
@@ -1357,7 +1354,6 @@ footer small {
 body.dark .header-logo,
 body.dark .footer-logo,
 body.dark .rsvp-logo,
-body.dark .landing-logo,
 body.dark .dress-illustration img,
 body.dark .venue-illustration img {
 
