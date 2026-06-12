@@ -182,17 +182,14 @@ body::before {
 
 .landing-background {
 
-    position: absolute;
-
-    inset: 0;
-
     background-image:
     url("images/landing-bg.jpg");
 
-    background-size: cover;
+    background-size:
+    cover;
 
     background-position:
-    center center;
+    center 35%;
 
 }
 
@@ -226,18 +223,23 @@ body::before {
 
 .landing-logo {
 
-    width: 200px;
+    width: clamp(
+        120px,
+        28vw,
+        320px
+    );
 
-    max-width: 65vw;
+    max-width: 80vw;
 
     margin-bottom: 30px;
 
     filter:
-       invert(1)
-       brightness(1.2)
-       drop-shadow(
-          0 12px 25px rgba(0,0,0,.35)
-       );
+    invert(1)
+    brightness(1.2)
+    drop-shadow(
+        0 12px 25px
+        rgba(0,0,0,.35)
+    );
 
 }
 
@@ -1019,8 +1021,34 @@ body::before {
     border-radius: 2px;
 
 }
-```
-```css
+
+.dress-swatches {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 35px;
+
+    flex-wrap: wrap;
+
+}
+
+.dress-swatches img {
+
+    width: 80px;
+
+    height: 80px;
+
+    object-fit: cover;
+
+    border:
+    1px solid var(--border);
+
+}
+
 /* ==================================================
    MENU
 ================================================== */
@@ -1450,6 +1478,14 @@ body.dark .venue-illustration img {
 
 @media (max-width: 768px) {
 
+    .landing-background {
+
+        background-position:
+        60% center;
+
+    }
+   
+
     .site-header {
 
         padding:
@@ -1476,14 +1512,31 @@ body.dark .venue-illustration img {
         letter-spacing: 1px;
 
     }
+   
+      .hero-content {
+   
+       padding:
+       60px 22px;
+   
+      }
 
-    .hero-content {
+      .details-board {
+      
+          padding: 22px;
 
-        padding:
-        70px 30px;
+      }
 
-    }
-
+      .countdown-section,
+      .itinerary-section,
+      .story-section,
+      .rsvp-section {
+      
+          padding-left: 22px;
+      
+          padding-right: 22px;
+      
+      }
+   
     .countdown-wrapper {
 
         grid-template-columns:
