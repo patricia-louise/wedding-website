@@ -174,8 +174,6 @@ body::before {
 
     z-index: 9999;
 
-    color: white;
-
 }
 
 .landing-background {
@@ -230,7 +228,12 @@ body::before {
 
     margin-bottom: 30px;
 
-    filter: invert(1) brightness(1.2) drop-shadow( 0 12px 25px rgba(0,0,0,.35) );
+    filter:
+       invert(1)
+       brightness(1.2)
+       drop-shadow(
+          0 12px 25px rgba(0,0,0,.35)
+       );
 
 }
 
@@ -267,7 +270,7 @@ body::before {
     7vw,
     6rem);
 
-    font-weight: 400;
+    font-weight: 200;
 
     line-height: 1.15;
 
@@ -1354,6 +1357,7 @@ footer small {
 body.dark .header-logo,
 body.dark .footer-logo,
 body.dark .rsvp-logo,
+body.dark .landing-logo,
 body.dark .dress-illustration img,
 body.dark .venue-illustration img {
 
