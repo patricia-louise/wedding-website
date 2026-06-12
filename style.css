@@ -33,11 +33,11 @@ https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=C
     /* TYPOGRAPHY */
 
     --font-heading:
-    "Cormorant Garamond",
-    sans-serif;
+    "Cinzel Decorative",
+    serif;
 
     --font-body:
-    "Cinzel Decorative",
+    "Cormorant Garamond",
     serif;
 
     --font-script:
