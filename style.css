@@ -233,9 +233,9 @@ body::before {
 .landing-logo {
 
     width: clamp(
-        120px,
-        28vw,
-        320px
+        110px,
+        22vw,
+        260px
     );
 
     max-width: 80vw;
@@ -945,21 +945,22 @@ body::before {
 
 .details-board {
 
-    max-width: 1200px;
+    width: 100%;
+
+    max-width: 1600px;
 
     margin: auto;
 
-    padding:
-    40px;
+    padding: 40px 60px;
 
     display: grid;
 
     grid-template-columns:
     1fr 1fr;
 
-    gap: 40px;
+    gap: 50px;
 
-}
+}   
 
 .dress-code-card,
 .menu-card {
@@ -1490,7 +1491,7 @@ body.dark .venue-illustration img {
     .landing-background {
 
         background-position:
-        60% center;
+        center center;
 
     }
    
