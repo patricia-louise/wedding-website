@@ -382,66 +382,47 @@ body::before {
 
 }
 
-/* ==================================================
-   HEADER
-================================================== */
+/* =======================================
+V6 HEADER
+======================================= */
 
 .site-header {
 
     position: sticky;
-
     top: 0;
 
     z-index: 1000;
 
-    display: flex;
-
-    justify-content:
-    space-between;
-
-    align-items: center;
-
-    padding:
-    14px 40px;
-
-    border-bottom:
-    1px solid var(--border);
+    backdrop-filter: blur(14px);
 
     background:
-    rgba(17,17,17,.92);
+    rgba(17,17,17,.88);
 
-    backdrop-filter:
-    blur(12px);
-
-}
-
-/* LOGO */
-
-.header-logo {
-
-    width: 45px;
-
-    filter:
-    invert(1)
-    drop-shadow(
-    0 4px 10px
-    rgba(0,0,0,.15));
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
 
 }
-
-/* NAV */
 
 .main-nav {
 
+    max-width: 1400px;
+
+    margin: auto;
+
     display: flex;
 
-    gap: 30px;
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 48px;
+
+    padding:
+    16px 40px;
 
 }
 
 .main-nav a {
-
-    position: relative;
 
     text-decoration: none;
 
@@ -454,8 +435,10 @@ body::before {
 
     letter-spacing: 2px;
 
+    position: relative;
+
     transition:
-    .2s ease;
+    .3s ease;
 
 }
 
@@ -473,10 +456,9 @@ body::before {
     position: absolute;
 
     left: 0;
-    bottom: -8px;
+    bottom: -6px;
 
     width: 0;
-
     height: 1px;
 
     background:
@@ -492,20 +474,41 @@ body::before {
     width: 100%;
 
 }
-```
-```css
-/* ==================================================
-   THEME TOGGLE
-================================================== */
+
+.header-logo {
+
+    width: 90px;
+
+    margin:
+    0 20px;
+
+    transition:
+    .3s ease;
+
+}
+
+.header-logo:hover {
+
+    transform:
+    scale(1.05);
+
+}
+
+/* =======================================
+THEME TOGGLE
+======================================= */
 
 #themeToggle {
 
     position: fixed;
 
-    right: 24px;
-    bottom: 24px;
+    right: 20px;
+    bottom: 20px;
 
     z-index: 9999;
+
+    border:
+    1px solid var(--border);
 
     background:
     var(--paper);
@@ -513,14 +516,8 @@ body::before {
     color:
     var(--text);
 
-    border:
-    1px solid var(--border);
-
     padding:
     12px 18px;
-
-    font-family:
-    var(--font-sans);
 
     font-size: 11px;
 
@@ -528,33 +525,20 @@ body::before {
 
     cursor: pointer;
 
-    transition:
-    .3s ease;
-
 }
 
-#themeToggle:hover {
-
-    border-color:
-    var(--accent);
-
-    color:
-    var(--accent);
-
-}
-
-/* ==================================================
-   HERO
-================================================== */
+/* =======================================
+HERO
+======================================= */
 
 .hero {
 
-    min-height: 92vh;
+    min-height: 100vh;
 
     display: grid;
 
     grid-template-columns:
-    42% 58%;
+    40% 60%;
 
 }
 
@@ -573,14 +557,14 @@ body::before {
 
 .hero-intro {
 
-    font-family:
-    var(--font-body);
+    font-size:
+    clamp(
+        1.2rem,
+        2vw,
+        1.6rem
+    );
 
-    font-size: 1.35rem;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 
 }
 
@@ -591,11 +575,10 @@ body::before {
 
     font-size:
     clamp(
-    3rem,
-    5vw,
-    5.5rem);
-
-    font-weight: 400;
+        3.2rem,
+        5vw,
+        6rem
+    );
 
     line-height: 1.15;
 
@@ -610,11 +593,10 @@ body::before {
 
     font-size:
     clamp(
-    2.2rem,
-    4vw,
-    4rem);
-
-   font-weight: 200;
+        2.8rem,
+        4vw,
+        4rem
+    );
 
     color:
     var(--accent);
@@ -628,12 +610,14 @@ body::before {
 
     margin-top: 35px;
 
-    font-size: 1.35rem;
+    font-size:
+    clamp(
+        1.3rem,
+        2vw,
+        1.8rem
+    );
 
-    line-height: 1.8;
-
-    color:
-    var(--muted);
+    line-height: 1.7;
 
 }
 
@@ -646,16 +630,18 @@ body::before {
     var(--accent);
 
     margin:
-    35px 0;
+    40px 0;
 
 }
 
 .hero-date {
 
-    font-size: 1.8rem;
-
-    font-family:
-    var(--font-body);
+    font-size:
+    clamp(
+        1.8rem,
+        2vw,
+        2.2rem
+    );
 
 }
 
@@ -663,12 +649,12 @@ body::before {
 
     margin-top: 10px;
 
-    font-size: 1.25rem;
-
-    color:
-    var(--muted);
+    font-size:
+    1.35rem;
 
 }
+
+/* FULL BLEED IMAGE */
 
 .hero-image {
 
@@ -683,440 +669,27 @@ body::before {
 
     object-fit: cover;
 
-}
-
-/* ==================================================
-   SECTION HEADINGS
-================================================== */
-
-.section-heading {
-
-    text-align: center;
-
-    margin-bottom: 60px;
+    object-position:
+    center center;
 
 }
 
-.section-heading h2 {
+/* =======================================
+SAVE THE DATE
+======================================= */
 
-    font-family:
-    var(--font-heading2);
+.save-date-section {
 
-    font-size:
-    clamp(
-    2rem,
-    4vw,
-    4rem);
-
-    font-weight: 400;
-
-    letter-spacing: 3px;
-
-}
-
-.section-script {
-
-    font-family:
-    var(--font-script);
-
-    font-size:
-    clamp(
-    2rem,
-    3vw,
-    3.2rem);
-
-    color:
-    var(--accent);
-
-    margin-top: 10px;
-
-}
-
-/* ==================================================
-   BUTTONS
-================================================== */
-
-.button-style {
-
-    display: inline-block;
-
-    text-decoration: none;
-
-    color:
-    var(--text);
-
-    border:
-    1px solid var(--text);
-
-    padding:
-    14px 30px;
-
-    font-family:
-    var(--font-sans);
-
-    letter-spacing: 2px;
-
-    transition:
-    .3s ease;
-
-}
-
-.button-style:hover {
-
-    background:
-    var(--accent);
-
-    color:
-    white;
-
-    border-color:
-    var(--accent);
-
-}
-
-/* ==================================================
-   COUNTDOWN
-================================================== */
-
-.countdown-section {
-
-    max-width: 1400px;
+    max-width: 1500px;
 
     margin: auto;
 
     padding:
-    140px 40px;
+    160px 50px;
 
 }
 
-.countdown-wrapper {
-
-    display: grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap: 40px;
-
-}
-
-.countdown-card {
-
-    background:
-    var(--paper);
-
-    border:
-    1px solid var(--border);
-
-    padding:
-    60px 40px;
-
-    text-align: center;
-
-}
-
-.countdown-card h3 {
-
-    font-family:
-    var(--font-sans);
-
-    letter-spacing: 3px;
-
-    margin-bottom: 30px;
-
-    font-size: 12px;
-
-}
-
-.count-number {
-
-    display: block;
-
-    font-family:
-    var(--font-heading);
-
-    color:
-    var(--accent);
-
-    font-size:
-    clamp(
-    2rem,
-    4vw,
-    3.5rem);
-
-}
-
-.countdown-grid {
-
-    display: grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap: 15px;
-
-}
-
-.countdown-rsvp {
-
-    text-align: center;
-
-    margin-top: 50px;
-
-}
-
-/* ==================================================
-   ITINERARY
-================================================== */
-
-.itinerary-section {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding:
-    140px 40px;
-
-}
-
-.itinerary-card {
-
-    background:
-    var(--paper);
-
-    border:
-    1px solid var(--border);
-
-    padding: 20px;
-
-}
-
-.itinerary-frame {
-
-    border:
-    1px solid var(--border);
-
-    padding:
-    45px;
-
-}
-
-.timeline-row {
-
-    display: grid;
-
-    grid-template-columns:
-    160px 1fr;
-
-    gap: 25px;
-
-    align-items: center;
-
-    padding:
-    14px 0;
-
-}
-
-.timeline-row span {
-
-    color:
-    var(--accent);
-
-    border-right:
-    1px solid var(--accent);
-
-    padding-right: 20px;
-
-    font-family:
-    var(--font-sans);
-
-}
-
-.timeline-row p {
-
-    padding-left: 10px;
-
-}
-
-/* ==================================================
-   DRESS CODE + MENU
-================================================== */
-
-.details-board {
-
-    width: 100%;
-
-    max-width: 1600px;
-
-    margin: auto;
-
-    padding: 40px 60px;
-
-    display: grid;
-
-    grid-template-columns:
-    1fr 1fr;
-
-    gap: 50px;
-
-}   
-
-.dress-code-card,
-.menu-card {
-
-    background:
-    var(--paper);
-
-    border:
-    1px solid var(--border);
-
-    padding:
-    60px 40px;
-
-    text-align: center;
-
-}
-
-.dress-illustration {
-
-    max-width: 260px;
-
-    margin:
-    30px auto;
-
-}
-
-.dress-illustration img {
-
-    width: 100%;
-
-}
-
-.dress-description {
-
-    font-size: 1.3rem;
-
-}
-
-.dress-subtitle {
-
-    color:
-    var(--muted);
-
-    margin-top: 10px;
-
-}
-
-.dress-swatches {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 16px;
-
-    margin-top: 35px;
-
-}
-
-.swatch {
-
-    width: 72px;
-    height: 40px;
-
-    border:
-    1px solid var(--border);
-
-    border-radius: 2px;
-
-}
-
-.dress-swatches {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 14px;
-
-    margin-top: 35px;
-
-    flex-wrap: wrap;
-
-}
-
-.dress-swatches img {
-
-    width: 80px;
-
-    height: 80px;
-
-    object-fit: cover;
-
-    border:
-    1px solid var(--border);
-
-}
-
-/* ==================================================
-   MENU
-================================================== */
-
-.menu-divider {
-
-    width: 80px;
-    height: 1px;
-
-    background:
-    var(--accent);
-
-    margin:
-    30px auto;
-
-}
-
-.menu-section {
-
-    margin-top: 30px;
-
-}
-
-.menu-section h3 {
-
-    font-family:
-    var(--font-body);
-
-    color:
-    var(--accent);
-
-    font-size:
-    1.5rem;
-
-    font-weight: 500;
-
-    margin-bottom: 10px;
-
-}
-
-.menu-section p {
-
-    line-height: 1.8;
-
-}
-
-/* ==================================================
-   VENUE
-================================================== */
-
-.venue-section {
-
-    max-width: 1400px;
-
-    margin: auto;
-
-    padding:
-    150px 40px;
+.save-date-layout {
 
     display: grid;
 
@@ -1129,6 +702,124 @@ body::before {
 
 }
 
+/* CALENDAR */
+
+.calendar-card {
+
+    border:
+    1px solid var(--border);
+
+    padding:
+    50px;
+
+}
+
+.calendar-month {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    letter-spacing: 3px;
+
+    font-family:
+    var(--font-sans);
+
+}
+
+.calendar-grid {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(7,1fr);
+
+    gap: 10px;
+
+    text-align: center;
+
+}
+
+.calendar-grid div {
+
+    padding:
+    12px;
+
+}
+
+.wedding-day {
+
+    background:
+    var(--accent);
+
+    color: white;
+
+    border-radius: 50%;
+
+}
+
+/* COUNTDOWN */
+
+.countdown-stack {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+}
+
+.countdown-card {
+
+    border:
+    1px solid var(--border);
+
+    padding:
+    35px;
+
+}
+
+.countdown-card h3 {
+
+    margin-bottom: 20px;
+
+    letter-spacing: 2px;
+
+    font-size: 12px;
+
+}
+
+/* =======================================
+VENUE
+======================================= */
+
+.venue-section {
+
+    max-width: 1500px;
+
+    margin: auto;
+
+    padding:
+    160px 50px;
+
+    display: grid;
+
+    grid-template-columns:
+    45% 55%;
+
+    gap: 100px;
+
+    align-items: center;
+
+}
+
+.venue-content {
+
+    max-width: 550px;
+
+}
+
 .venue-name {
 
     font-family:
@@ -1136,11 +827,12 @@ body::before {
 
     font-size:
     clamp(
-    2rem,
-    4vw,
-    3.5rem);
+        2rem,
+        4vw,
+        4rem
+    );
 
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 
 }
 
@@ -1148,9 +840,6 @@ body::before {
 
     color:
     var(--accent);
-
-    font-family:
-    var(--font-sans);
 
     letter-spacing: 2px;
 
@@ -1160,12 +849,7 @@ body::before {
 
 .venue-description {
 
-    color:
-    var(--muted);
-
     line-height: 1.9;
-
-    max-width: 550px;
 
     margin-bottom: 35px;
 
@@ -1188,105 +872,406 @@ body::before {
 
 }
 
-/* ==================================================
-   STORY
-================================================== */
+/* =======================================
+THE CELEBRATION
+======================================= */
 
-.story-section {
+.celebration-section {
 
-    max-width: 1400px;
+    max-width: 1200px;
 
     margin: auto;
 
     padding:
-    150px 40px;
+    160px 50px;
 
 }
 
-.story-chapter {
+.itinerary-card {
+
+    border:
+    1px solid var(--border);
+
+    padding: 20px;
+
+}
+
+.itinerary-frame {
+
+    border:
+    1px solid var(--border);
+
+    padding:
+    50px;
+
+}
+
+.timeline-row {
 
     display: grid;
 
     grid-template-columns:
-    1fr 1fr;
+    180px 1fr;
+
+    gap: 25px;
+
+    align-items: center;
+
+    padding:
+    12px 0;
+
+}
+
+.timeline-row span {
+
+    color:
+    var(--accent);
+
+    border-right:
+    1px solid var(--accent);
+
+    padding-right: 20px;
+
+    font-family:
+    var(--font-sans);
+
+    letter-spacing: 1px;
+
+}
+
+.timeline-row p {
+
+    padding-left: 10px;
+
+}
+
+/* =======================================
+ATTIRE
+======================================= */
+
+.attire-section {
+
+    max-width: 1500px;
+
+    margin: auto;
+
+    padding:
+    160px 50px;
+
+}
+
+.attire-layout {
+
+    display: grid;
+
+    grid-template-columns:
+    45% 55%;
 
     gap: 80px;
 
     align-items: center;
 
-    margin-top: 100px;
-
 }
 
-.story-chapter.reverse {
-
-    direction: rtl;
-
-}
-
-.story-chapter.reverse * {
-
-    direction: ltr;
-
-}
-
-.story-image {
-
-    overflow: hidden;
-
-}
-
-.story-image img {
+.attire-sketch {
 
     width: 100%;
 
+    max-width: 500px;
+
     display: block;
+
+    margin: auto;
+
+}
+
+.attire-right h3 {
+
+    font-family:
+    var(--font-heading);
+
+    font-size:
+    clamp(
+        2rem,
+        3vw,
+        3rem
+    );
+
+    margin-bottom: 20px;
+
+}
+
+.attire-right p {
+
+    font-size:
+    1.2rem;
+
+    line-height: 1.8;
+
+}
+
+.attire-note {
+
+    margin-top: 30px;
+
+    padding:
+    20px;
+
+    border:
+    1px solid var(--border);
+
+    background:
+    var(--paper);
+
+}
+
+/* SWATCHES */
+
+.dress-swatches {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    margin-top: 35px;
+
+}
+
+.dress-swatches img {
+
+    width: 95px;
+
+    height: 95px;
+
+    object-fit: cover;
+
+    border:
+    1px solid var(--border);
+
+    transition:
+    transform .3s ease;
+
+}
+
+.dress-swatches img:hover {
+
+    transform:
+    translateY(-4px);
+
+}
+
+/* =======================================
+DINING
+======================================= */
+
+.dining-section {
+
+    max-width: 1500px;
+
+    margin: auto;
+
+    padding:
+    160px 50px;
+
+}
+
+.menu-board {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap: 30px;
+
+}
+
+.menu-section {
+
+    border:
+    1px solid var(--border);
+
+    padding:
+    40px 30px;
+
+    text-align: center;
+
+}
+
+.menu-section h3 {
+
+    color:
+    var(--accent);
+
+    margin-bottom: 15px;
+
+    font-size:
+    1.5rem;
+
+}
+
+.menu-section p {
+
+    line-height: 2;
+
+}
+
+/* =======================================
+OUR STORY
+======================================= */
+
+.story-section {
+
+    max-width: 1600px;
+
+    margin: auto;
+
+    padding:
+    160px 50px;
+
+}
+
+.story-strip {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap: 25px;
+
+}
+
+.story-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    aspect-ratio: 3/4;
+
+}
+
+.story-card img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
 
     transition:
     transform .8s ease;
 
 }
 
-.story-image:hover img {
+.story-card:hover img {
 
     transform:
-    scale(1.03);
+    scale(1.05);
 
 }
 
-.story-text h3 {
+.story-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+    rgba(0,0,0,.55);
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transition:
+    opacity .4s ease;
+
+    padding:
+    30px;
+
+}
+
+.story-card:hover .story-overlay {
+
+    opacity: 1;
+
+}
+
+.story-overlay h3 {
 
     font-family:
-    var(--font-heading2);
+    var(--font-script);
 
     font-size:
-    clamp(
-    2.2rem,
-    3vw,
-    3.5rem);
+    2.5rem;
 
-    color:
-    var(--accent);
-
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
 }
 
-.story-text p {
+/* =======================================
+WITH GRATITUDE
+======================================= */
 
-    font-size:
-    1.15rem;
+.gratitude-section {
 
-    line-height: 1.9;
+    max-width: 1000px;
 
-    color:
-    var(--muted);
+    margin: auto;
+
+    padding:
+    160px 50px;
 
 }
 
-/* ==================================================
-   RSVP
-================================================== */
+.gratitude-card {
+
+    border:
+    1px solid var(--border);
+
+    padding:
+    80px 50px;
+
+    text-align: center;
+
+}
+
+.gratitude-message {
+
+    max-width: 650px;
+
+    margin:
+    0 auto 50px;
+
+    line-height: 2;
+
+    font-size:
+    1.2rem;
+
+}
+
+.gift-qr img {
+
+    width: 220px;
+
+}
+
+/* =======================================
+RSVP
+======================================= */
 
 .rsvp-section {
 
@@ -1295,68 +1280,42 @@ body::before {
     margin: auto;
 
     padding:
-    160px 40px;
+    160px 50px;
 
 }
 
 .rsvp-card {
 
-    background:
-    var(--paper);
-
     border:
     1px solid var(--border);
 
     padding:
-    90px 40px;
+    100px 50px;
 
     text-align: center;
 
 }
 
-.rsvp-logo {
-
-    width: 140px;
-
-    margin-bottom: 30px;
-
-}
-
 .rsvp-deadline {
 
-    color:
-    var(--muted);
-
-    margin-bottom: 35px;
+    margin:
+    30px 0;
 
     font-size:
-    1.2rem;
+    1.25rem;
 
 }
 
-/* ==================================================
-   FOOTER
-================================================== */
+/* =======================================
+FOOTER
+======================================= */
 
 footer {
 
     text-align: center;
 
     padding:
-    100px 40px;
-
-}
-
-.footer-divider {
-
-    width: 140px;
-    height: 1px;
-
-    background:
-    var(--accent);
-
-    margin:
-    0 auto 40px;
+    120px 40px;
 
 }
 
@@ -1378,89 +1337,52 @@ footer {
 
     font-size:
     clamp(
-    1.8rem,
-    3vw,
-    3rem);
-
-    font-weight: 400;
-
-}
-
-footer p {
-
-    margin-top: 15px;
+        2rem,
+        3vw,
+        3rem
+    );
 
 }
 
-footer small {
+.footer-couple span {
 
     display: block;
 
-    margin-top: 15px;
+    font-family:
+    var(--font-script);
 
-    color:
-    var(--muted);
+    font-size:
+    2.5rem;
 
-}
-
-/* ==================================================
-   DARK MODE IMAGE INVERSION
-================================================== */
-
-body.dark .header-logo,
-body.light .header-logo,
-body.dark .footer-logo,
-body.dark .rsvp-logo,
-body.dark .landing-logo,
-body.dark .dress-illustration img,
-body.dark .venue-illustration img {
-
-    filter:
-    invert(1)
-    brightness(1.2);
+    margin:
+    10px 0;
 
 }
 
-/* ==================================================
-   REVEAL ANIMATIONS
-================================================== */
+/* =======================================
+MOBILE LANDING IMAGE
+======================================= */
 
-.reveal {
+@media (max-width: 768px) {
 
-    opacity: 0;
+    .landing-background {
 
-    transform:
-    translateY(30px);
+        background-image:
+        url("images/landing-bg-mobile.jpg");
 
-    transition:
-    opacity 1s ease,
-    transform 1s ease;
+    }
 
 }
 
-.reveal-active {
-
-    opacity: 1;
-
-    transform:
-    translateY(0);
-
-}
-
-.active-link {
-
-    color:
-    var(--accent) !important;
-
-}
-
-/* ==================================================
-   RESPONSIVE
-================================================== */
+/* =======================================
+TABLET
+======================================= */
 
 @media (max-width: 1200px) {
 
-    .hero {
+    .hero,
+    .venue-section,
+    .attire-layout {
 
         grid-template-columns:
         1fr;
@@ -1469,15 +1391,20 @@ body.dark .venue-illustration img {
 
     .hero-image {
 
-        order: -1;
+        min-height: 70vh;
 
-        min-height: 65vh;
+        order: -1;
 
     }
 
-    .details-board,
-    .venue-section,
-    .story-chapter {
+    .menu-board {
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .story-strip {
 
         grid-template-columns:
         1fr;
@@ -1486,78 +1413,56 @@ body.dark .venue-illustration img {
 
 }
 
+/* =======================================
+MOBILE
+======================================= */
+
 @media (max-width: 768px) {
 
-    .landing-background {
+    .main-nav {
 
-        background-position:
-        center center;
-
-    }
-   
-
-    .site-header {
+        gap: 18px;
 
         padding:
-        14px 20px;
+        16px 20px;
 
     }
 
     .header-logo {
 
-        width: 80px;
+        width: 65px;
 
     }
 
-    .main-nav {
+    .hero-content,
+    .save-date-section,
+    .venue-section,
+    .celebration-section,
+    .attire-section,
+    .dining-section,
+    .story-section,
+    .gratitude-section,
+    .rsvp-section {
 
-        gap: 16px;
+        padding-left: 24px;
+
+        padding-right: 24px;
 
     }
 
-    .main-nav a {
-
-        font-size: 11px;
-
-        letter-spacing: 1px;
-
-    }
-   
-      .hero-content {
-   
-       padding:
-       60px 22px;
-   
-      }
-
-      .details-board {
-      
-          padding: 22px;
-
-      }
-
-      .countdown-section,
-      .itinerary-section,
-      .story-section,
-      .rsvp-section {
-      
-          padding-left: 22px;
-      
-          padding-right: 22px;
-      
-      }
-   
-    .countdown-wrapper {
+    .save-date-layout {
 
         grid-template-columns:
         1fr;
 
+        gap: 50px;
+
     }
 
-    .countdown-grid {
+    .menu-board {
 
         grid-template-columns:
-        repeat(2,1fr);
+        1fr;
 
     }
 
@@ -1566,7 +1471,7 @@ body.dark .venue-illustration img {
         grid-template-columns:
         1fr;
 
-        gap: 8px;
+        gap: 6px;
 
     }
 
@@ -1584,72 +1489,10 @@ body.dark .venue-illustration img {
 
     }
 
-    .story-chapter {
+    .dress-swatches {
 
-        gap: 40px;
-
-        margin-top: 70px;
+        justify-content: center;
 
     }
-
-    #themeToggle {
-
-        right: 15px;
-        bottom: 15px;
-
-    }
-
-}
-
-/* ==================================================
-   V5.1 LUXURY POLISH
-================================================== */
-
-.section-heading {
-
-    position: relative;
-
-}
-
-.section-heading::after {
-
-    content: "";
-
-    display: block;
-
-    width: 60px;
-    height: 1px;
-
-    background:
-    var(--accent);
-
-    margin:
-    20px auto 0;
-
-    opacity: .6;
-
-}
-
-.countdown-card,
-.itinerary-card,
-.dress-code-card,
-.menu-card,
-.rsvp-card {
-
-    box-shadow:
-    0 8px 30px
-    rgba(0,0,0,.03);
-
-}
-
-body.dark .countdown-card,
-body.dark .itinerary-card,
-body.dark .dress-code-card,
-body.dark .menu-card,
-body.dark .rsvp-card {
-
-    box-shadow:
-    0 8px 30px
-    rgba(0,0,0,.25);
 
 }
