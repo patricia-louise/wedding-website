@@ -1,28 +1,24 @@
-```javascript
 /* ======================================
    OPEN INVITATION
 ====================================== */
 
-const openBtn =
-document.getElementById(
-    "openInvitation"
-);
+document.addEventListener("DOMContentLoaded", () => {
 
-const introScreen =
-document.getElementById(
-    "intro-screen"
-);
+    const openBtn =
+    document.getElementById("openInvitation");
 
-const mainSite =
-document.getElementById(
-    "mainSite"
-);
+    const introScreen =
+    document.getElementById("intro-screen");
 
-if (openBtn) {
+    const mainSite =
+    document.getElementById("mainSite");
 
-    openBtn.addEventListener(
-        "click",
-        () => {
+    if (openBtn && introScreen && mainSite) {
+
+        openBtn.addEventListener("click", () => {
+
+            introScreen.style.transition =
+            "opacity .6s ease";
 
             introScreen.style.opacity = "0";
 
@@ -34,234 +30,201 @@ if (openBtn) {
                 mainSite.style.display =
                 "block";
 
-                window.scrollTo({
-                    top: 0,
-                    behavior: "instant"
-                });
+                window.scrollTo(0, 0);
 
             }, 600);
 
+        });
+
+    }
+
+    /* ======================================
+       THEME TOGGLE
+    ====================================== */
+
+    const themeToggle =
+    document.getElementById("themeToggle");
+
+    const savedTheme =
+    localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark");
+
+        if (themeToggle) {
+
+            themeToggle.textContent =
+            "LIGHT MODE";
+
         }
-    );
 
-}
-
-/* ======================================
-   THEME TOGGLE
-====================================== */
-
-const themeToggle =
-document.getElementById(
-    "themeToggle"
-);
-
-const savedTheme =
-localStorage.getItem(
-    "theme"
-);
-
-if (savedTheme === "dark") {
-
-    document.body.classList.add(
-        "dark"
-    );
+    }
 
     if (themeToggle) {
 
-        themeToggle.textContent =
-        "LIGHT MODE";
+        themeToggle.addEventListener("click", () => {
 
-    }
+            document.body.classList.toggle("dark");
 
-}
-
-if (themeToggle) {
-
-    themeToggle.addEventListener(
-        "click",
-        () => {
-
-            document.body.classList.toggle(
-                "dark"
-            );
-
-            const darkMode =
-            document.body.classList.contains(
-                "dark"
-            );
+            const isDark =
+            document.body.classList.contains("dark");
 
             localStorage.setItem(
                 "theme",
-                darkMode
-                ? "dark"
-                : "light"
+                isDark ? "dark" : "light"
             );
 
             themeToggle.textContent =
-            darkMode
+            isDark
             ? "LIGHT MODE"
             : "DARK MODE";
 
-        }
-    );
-
-}
-
-/* ======================================
-   COUNTDOWNS
-====================================== */
-
-const weddingDate =
-new Date(
-    "August 20, 2026 16:00:00"
-);
-
-const rsvpDeadline =
-new Date(
-    "June 30, 2026 23:59:59"
-);
-
-function createCountdownHTML(
-    days,
-    hours,
-    minutes,
-    seconds
-) {
-
-    return `
-        <div>
-            <span class="count-number">
-                ${days}
-            </span>
-            <small>Days</small>
-        </div>
-
-        <div>
-            <span class="count-number">
-                ${hours}
-            </span>
-            <small>Hours</small>
-        </div>
-
-        <div>
-            <span class="count-number">
-                ${minutes}
-            </span>
-            <small>Minutes</small>
-        </div>
-
-        <div>
-            <span class="count-number">
-                ${seconds}
-            </span>
-            <small>Seconds</small>
-        </div>
-    `;
-
-}
-
-function updateCountdown(
-    targetDate,
-    containerId
-) {
-
-    const now =
-    new Date();
-
-    const diff =
-    targetDate - now;
-
-    const container =
-    document.getElementById(
-        containerId
-    );
-
-    if (
-        !container ||
-        diff <= 0
-    ) {
-
-        return;
+        });
 
     }
 
-    const days =
-    Math.floor(
-        diff /
-        (1000 * 60 * 60 * 24)
-    );
+    /* ======================================
+       COUNTDOWNS
+    ====================================== */
 
-    const hours =
-    Math.floor(
-        (diff %
-        (1000 * 60 * 60 * 24))
-        /
-        (1000 * 60 * 60)
-    );
-
-    const minutes =
-    Math.floor(
-        (diff %
-        (1000 * 60 * 60))
-        /
-        (1000 * 60)
-    );
-
-    const seconds =
-    Math.floor(
-        (diff %
-        (1000 * 60))
-        /
-        1000
-    );
-
-    container.innerHTML =
-    createCountdownHTML(
-        days,
-        hours,
-        minutes,
-        seconds
-    );
-
-}
-
-function updateAllCountdowns() {
-
-    updateCountdown(
-        weddingDate,
+    const weddingCountdown =
+    document.getElementById(
         "weddingCountdown"
     );
 
-    updateCountdown(
-        rsvpDeadline,
+    const rsvpCountdown =
+    document.getElementById(
         "rsvpCountdown"
     );
 
-}
+    function buildCountdown(
+        targetDate,
+        container
+    ) {
 
-updateAllCountdowns();
+        if (!container) return;
 
-setInterval(
-    updateAllCountdowns,
-    1000
-);
+        const now = new Date();
 
-/* ======================================
-   REVEAL ANIMATIONS
-====================================== */
+        const diff =
+        targetDate - now;
 
-const revealElements =
-document.querySelectorAll(
-    "section"
-);
+        if (diff <= 0) {
 
-const observer =
-new IntersectionObserver(
+            container.innerHTML =
+            "<p>Completed</p>";
 
-    entries => {
+            return;
+        }
 
-        entries.forEach(
-            entry => {
+        const days =
+        Math.floor(
+            diff /
+            (1000 * 60 * 60 * 24)
+        );
+
+        const hours =
+        Math.floor(
+            (diff %
+            (1000 * 60 * 60 * 24))
+            /
+            (1000 * 60 * 60)
+        );
+
+        const minutes =
+        Math.floor(
+            (diff %
+            (1000 * 60 * 60))
+            /
+            (1000 * 60)
+        );
+
+        const seconds =
+        Math.floor(
+            (diff %
+            (1000 * 60))
+            /
+            1000
+        );
+
+        container.innerHTML = `
+
+            <div>
+                <span class="count-number">
+                    ${days}
+                </span>
+                <small>Days</small>
+            </div>
+
+            <div>
+                <span class="count-number">
+                    ${hours}
+                </span>
+                <small>Hours</small>
+            </div>
+
+            <div>
+                <span class="count-number">
+                    ${minutes}
+                </span>
+                <small>Minutes</small>
+            </div>
+
+            <div>
+                <span class="count-number">
+                    ${seconds}
+                </span>
+                <small>Seconds</small>
+            </div>
+
+        `;
+    }
+
+    function updateCountdowns() {
+
+        buildCountdown(
+
+            new Date(
+                "August 20, 2026 16:00:00"
+            ),
+
+            weddingCountdown
+
+        );
+
+        buildCountdown(
+
+            new Date(
+                "June 30, 2026 23:59:59"
+            ),
+
+            rsvpCountdown
+
+        );
+
+    }
+
+    updateCountdowns();
+
+    setInterval(
+        updateCountdowns,
+        1000
+    );
+
+    /* ======================================
+       REVEAL ANIMATIONS
+    ====================================== */
+
+    const sections =
+    document.querySelectorAll("section");
+
+    const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
 
                 if (
                     entry.isIntersecting
@@ -273,124 +236,48 @@ new IntersectionObserver(
 
                 }
 
-            }
-        );
+            });
 
-    },
+        },
 
-    {
-        threshold: .15
-    }
+        {
+            threshold: .15
+        }
 
-);
+    );
 
-revealElements.forEach(
-    section => {
+    sections.forEach(section => {
 
-        section.classList.add(
-            "reveal"
-        );
+        section.classList.add("reveal");
 
-        observer.observe(
-            section
-        );
+        observer.observe(section);
 
-    }
-);
+    });
 
-/* ======================================
-   ACTIVE NAVIGATION
-====================================== */
+    /* ======================================
+       SMOOTH SCROLL
+    ====================================== */
 
-const sections =
-document.querySelectorAll(
-    "section[id]"
-);
+    document
+    .querySelectorAll(
+        'a[href^="#"]'
+    )
+    .forEach(link => {
 
-const navLinks =
-document.querySelectorAll(
-    ".main-nav a"
-);
+        link.addEventListener(
+            "click",
+            function(e) {
 
-window.addEventListener(
-    "scroll",
-    () => {
-
-        let current = "";
-
-        sections.forEach(
-            section => {
-
-                const top =
-                section.offsetTop;
-
-                const height =
-                section.clientHeight;
-
-                if (
-                    scrollY >=
-                    top - 180
-                ) {
-
-                    current =
-                    section.getAttribute(
-                        "id"
-                    );
-
-                }
-
-            }
-        );
-
-        navLinks.forEach(
-            link => {
-
-                link.classList.remove(
-                    "active-link"
+                const target =
+                document.querySelector(
+                    this.getAttribute(
+                        "href"
+                    )
                 );
 
-                if (
-                    link.href.includes(
-                        current
-                    )
-                ) {
+                if (!target) return;
 
-                    link.classList.add(
-                        "active-link"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-);
-
-/* ======================================
-   SMOOTH SCROLL
-====================================== */
-
-document
-.querySelectorAll(
-    'a[href^="#"]'
-)
-.forEach(link => {
-
-    link.addEventListener(
-        "click",
-        function(e) {
-
-            e.preventDefault();
-
-            const target =
-            document.querySelector(
-                this.getAttribute(
-                    "href"
-                )
-            );
-
-            if (target) {
+                e.preventDefault();
 
                 target.scrollIntoView({
 
@@ -400,9 +287,8 @@ document
                 });
 
             }
+        );
 
-        }
-    );
+    });
 
 });
-```
